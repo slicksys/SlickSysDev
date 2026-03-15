@@ -1,0 +1,102 @@
+# Globally ignore auto-generated files and npm / bower modules
+# You should customize this list as applicable to your project.
+.DS_Store
+*/.DS_Store
+.DS_Store?
+Thumbs.db
+node_modules/
+/node_modules
+/bower_components
+bower_components/
+.vscode
+*.sublime*
+/.idea
+/bin
+/obj
+/.vs
+.sass-cache
+.bowerrc
+.grunt
+.sass-lint.yml
+*.zip
+*.cfg
+*.jar
+*.log
+*.app
+*.exe
+*.war
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# Visual Studio 2017 auto generated files
+Generated\ Files/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUNIT
+*.VisualState.xml
+TestResult.xml
+
+# Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# Benchmark Results
+BenchmarkDotNet.Artifacts/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+**/Properties/launchSettings.json
+# Additional standard ignores
+*.rsuser
+*.sln.docstates
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.nupkg
+*.snupkg
+packages/
+**/packages/*
+*.Publish.xml
+*.pubxml
+*.pubxml.user
+*.coverage
+*.coveragexml
+coverage/
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+# Maps
+*.css.map
+# Editors
+.idea/
+.vscode/

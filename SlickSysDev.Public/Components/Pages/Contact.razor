@@ -1,0 +1,196 @@
+@page "/contact"
+@rendermode InteractiveServer
+
+
+<PageTitle>Contact Us | Slicksys Development</PageTitle>
+
+<section class="bg-dark pt-5 pb-4">
+    <div class="container pt-5 mt-2 pb-2">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-3">
+                <li class="breadcrumb-item"><a href="/" class="text-white-50">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Contact</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 text-white mb-3">Get in Touch</h1>
+        <p class="text-white-50 fs-lg mb-0" style="max-width: 640px;">
+            Ready to modernize your legacy systems? Start with a free assessment or simply reach out to discuss your needs.
+        </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container py-2">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <h2 class="mb-4">Let's Talk</h2>
+                <p class="text-muted mb-5">
+                    Whether you have a specific migration project in mind or just want to explore your options, our team is ready to help. Fill out the form and a senior architect will be in touch within one business day.
+                </p>
+                <ul class="list-unstyled mb-5">
+                    <li class="d-flex align-items-start gap-3 mb-4">
+                        <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-3 flex-shrink-0" style="width: 48px; height: 48px;">
+                            <i class="bx bx-map text-primary fs-4"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Office</h6>
+                            <p class="text-muted fs-sm mb-0">123 Innovation Drive, Suite 400<br />Austin, TX 78701</p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start gap-3 mb-4">
+                        <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-3 flex-shrink-0" style="width: 48px; height: 48px;">
+                            <i class="bx bx-phone text-primary fs-4"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Phone</h6>
+                            <a href="tel:+15125550100" class="text-muted fs-sm text-decoration-none">+1 (512) 555-0100</a>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start gap-3 mb-4">
+                        <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-3 flex-shrink-0" style="width: 48px; height: 48px;">
+                            <i class="bx bx-envelope text-primary fs-4"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Email</h6>
+                            <a href="mailto:hello@slicksys.com" class="text-muted fs-sm text-decoration-none">hello@slicksys.com</a>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start gap-3">
+                        <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-3 flex-shrink-0" style="width: 48px; height: 48px;">
+                            <i class="bx bx-time text-primary fs-4"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Business Hours</h6>
+                            <p class="text-muted fs-sm mb-0">Monday – Friday: 8am – 6pm CT<br />Emergency support available 24/7</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-7">
+                @if (_submitted)
+                {
+                    <div class="card border-0 shadow-sm p-5 text-center h-100 d-flex flex-column align-items-center justify-content-center">
+                        <div class="d-flex align-items-center justify-content-center bg-success bg-opacity-10 rounded-circle mb-4" style="width: 80px; height: 80px;">
+                            <i class="bx bx-check text-success" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h3 class="mb-3">Message Received!</h3>
+                        <p class="text-muted mb-4">Thank you for reaching out. A senior architect will contact you within one business day to discuss your project.</p>
+                        <button class="btn btn-outline-primary" @onclick="ResetForm">Send Another Message</button>
+                    </div>
+                }
+                else
+                {
+                    <div class="card border-0 shadow-sm p-4 p-lg-5">
+                        <h4 class="mb-4">Request a Free Assessment</h4>
+                        <EditForm Model="_form" OnValidSubmit="HandleSubmit">
+                            <DataAnnotationsValidator />
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label">First Name <span class="text-danger">*</span></label>
+                                    <InputText @bind-Value="_form.FirstName" class="form-control" placeholder="Marcus" />
+                                    <ValidationMessage For="@(() => _form.FirstName)" class="text-danger fs-xs mt-1" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">Last Name <span class="text-danger">*</span></label>
+                                    <InputText @bind-Value="_form.LastName" class="form-control" placeholder="Chen" />
+                                    <ValidationMessage For="@(() => _form.LastName)" class="text-danger fs-xs mt-1" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">Work Email <span class="text-danger">*</span></label>
+                                    <InputText @bind-Value="_form.Email" class="form-control" placeholder="marcus@company.com" />
+                                    <ValidationMessage For="@(() => _form.Email)" class="text-danger fs-xs mt-1" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label">Phone</label>
+                                    <InputText @bind-Value="_form.Phone" class="form-control" placeholder="+1 (512) 555-0100" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Company <span class="text-danger">*</span></label>
+                                    <InputText @bind-Value="_form.Company" class="form-control" placeholder="Acme Corporation" />
+                                    <ValidationMessage For="@(() => _form.Company)" class="text-danger fs-xs mt-1" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Service of Interest</label>
+                                    <InputSelect @bind-Value="_form.Service" class="form-select">
+                                        <option value="">Select a service...</option>
+                                        <option value="assessment">Legacy Assessment</option>
+                                        <option value="migration">Cloud Migration</option>
+                                        <option value="rearchitecture">Re-Architecture</option>
+                                        <option value="database">Database Modernization</option>
+                                        <option value="security">Security &amp; Compliance</option>
+                                        <option value="support">Post-Migration Support</option>
+                                        <option value="other">Other / Not Sure</option>
+                                    </InputSelect>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Tell Us About Your Project <span class="text-danger">*</span></label>
+                                    <InputTextArea @bind-Value="_form.Message" class="form-control" rows="4" placeholder="Briefly describe your current systems and what you're hoping to achieve..." />
+                                    <ValidationMessage For="@(() => _form.Message)" class="text-danger fs-xs mt-1" />
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100" disabled="@_submitting">
+                                        @if (_submitting)
+                                        {
+                                            <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                                            <span>Sending...</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Send Message</span>
+                                        }
+                                    </button>
+                                </div>
+                            </div>
+                        </EditForm>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+@code
+{
+
+    private ContactForm _form = new();
+    private bool _submitted = false;
+    private bool _submitting = false;
+
+
+    private async Task HandleSubmit()
+    {
+      _submitting = true;
+      await Task.Delay(1000);
+      _submitted = true;
+      _submitting = false;
+    }
+
+    private void ResetForm()
+    {
+      _form = new();
+      _submitted = false;
+    }
+
+    public class ContactForm
+    {
+      [Required(ErrorMessage = "First name is required")]
+      public string FirstName { get; set; } = string.Empty;
+
+      [Required(ErrorMessage = "Last name is required")]
+      public string LastName { get; set; } = string.Empty;
+
+      [Required(ErrorMessage = "Email is required")]
+      [EmailAddress(ErrorMessage = "Enter a valid email address")]
+      public string Email { get; set; } = string.Empty;
+
+      public string Phone { get; set; } = string.Empty;
+
+      [Required(ErrorMessage = "Company is required")]
+      public string Company { get; set; } = string.Empty;
+
+      public string Service { get; set; } = string.Empty;
+
+      [Required(ErrorMessage = "Please describe your project")]
+      [MinLength(20, ErrorMessage = "Please provide at least 20 characters")]
+      public string Message { get; set; } = string.Empty;
+    }
+}

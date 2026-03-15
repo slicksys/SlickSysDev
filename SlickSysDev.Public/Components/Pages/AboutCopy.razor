@@ -1,0 +1,143 @@
+@page "/about2"
+
+<PageTitle>About Us | Slicksys Development</PageTitle>
+
+<section class="bg-dark pt-5 pb-4">
+    <div class="container pt-5 mt-2 pb-2">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-3">
+                <li class="breadcrumb-item"><a href="/" class="text-white-50">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">About Us</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 text-white mb-3">About Slicksys Development</h1>
+        <p class="text-white-50 fs-lg mb-0" style="max-width: 640px;">
+            We are a team of cloud architects and migration specialists dedicated to helping enterprises modernize their legacy systems without disruption.
+        </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container py-2">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <h2 class="mb-4">Our Story</h2>
+                <p class="text-muted mb-3">
+                    Founded in 2009, Slicksys Development was born from a simple observation: enterprises were being held back by aging technology stacks that were too risky to replace and too costly to maintain.
+                </p>
+                <p class="text-muted mb-3">
+                    Our founders, veterans of Fortune 500 IT transformations, built a methodology that treats legacy migration not as a rip-and-replace exercise, but as a careful, phased modernization journey. Over 15 years, that methodology has been refined across 200+ successful migrations.
+                </p>
+                <p class="text-muted mb-0">
+                    Today, Slicksys is trusted by enterprises across finance, healthcare, manufacturing, and government to guide their most critical systems into the cloud era.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-4">
+                    @foreach (var stat in _stats)
+                    {
+                        <div class="col-6">
+                            <div class="card border-0 shadow-sm h-100 text-center p-4">
+                                <div class="display-5 fw-bold text-primary mb-1">@stat.Value</div>
+                                <div class="text-muted fs-sm">@stat.Label</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-secondary">
+    <div class="container py-2">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Our Core Values</h2>
+            <p class="text-muted" style="max-width: 560px; margin: 0 auto;">
+                Everything we do is guided by a commitment to delivering migrations that are safe, efficient, and built to last.
+            </p>
+        </div>
+        <div class="row g-4">
+            @foreach (var value in _values)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow-sm h-100 p-4">
+                        <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-3 mb-3" style="width: 56px; height: 56px;">
+                            <i class="@value.Icon text-primary fs-3"></i>
+                        </div>
+                        <h5 class="mb-2">@value.Title</h5>
+                        <p class="text-muted fs-sm mb-0">@value.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container py-2">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Leadership Team</h2>
+            <p class="text-muted" style="max-width: 560px; margin: 0 auto;">
+                Seasoned engineers and architects who have led transformations at the world's largest enterprises.
+            </p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            @foreach (var member in _team)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card border-0 shadow-sm text-center p-4 h-100">
+                        <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-circle mx-auto mb-3" style="width: 80px; height: 80px;">
+                            <i class="bx bx-user text-primary fs-1"></i>
+                        </div>
+                        <h6 class="mb-1">@member.Name</h6>
+                        <p class="text-primary fs-sm mb-2">@member.Title</p>
+                        <p class="text-muted fs-sm mb-0">@member.Bio</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-primary">
+    <div class="container py-2 text-center">
+        <h2 class="text-white mb-3">Ready to Start Your Migration Journey?</h2>
+        <p class="text-white opacity-75 mb-4" style="max-width: 560px; margin: 0 auto;">
+            Schedule a free assessment with our team and discover the fastest path to modernizing your legacy systems.
+        </p>
+        <a href="/contact" class="btn btn-light btn-lg px-5">Get Free Assessment</a>
+    </div>
+</section>
+
+@code {
+    private record StatItem(string Value, string Label);
+    private record ValueItem(string Icon, string Title, string Description);
+    private record TeamMember(string Name, string Title, string Bio);
+
+    private readonly List<StatItem> _stats =
+    [
+        new("200+", "Successful Migrations"),
+        new("98%", "Client Satisfaction"),
+        new("15+", "Years of Experience"),
+        new("50+", "Cloud Architects"),
+    ];
+
+    private readonly List<ValueItem> _values =
+    [
+        new("bx bx-shield-quarter", "Zero-Disruption Commitment", "We design every migration to keep your business running at full capacity throughout the entire process."),
+        new("bx bx-bulb", "Innovation with Pragmatism", "We adopt modern cloud-native patterns where they add value, not just for the sake of technology."),
+        new("bx bx-group", "Client Partnership", "We embed with your team, transfer knowledge, and ensure your staff can own and operate the new systems confidently."),
+        new("bx bx-lock-alt", "Security First", "Every migration is designed with enterprise-grade security, compliance, and governance built in from day one."),
+        new("bx bx-trending-up", "Measurable Outcomes", "We define clear KPIs before we start and hold ourselves accountable to delivering measurable business results."),
+        new("bx bx-support", "Long-Term Support", "Our relationship doesn't end at go-live. We provide ongoing support to ensure your systems continue to evolve."),
+    ];
+
+    private readonly List<TeamMember> _team =
+    [
+        new("Marcus Chen", "CEO & Co-Founder", "Former CTO at two Fortune 500 companies with 20+ years leading enterprise IT transformations."),
+        new("Sarah Okafor", "CTO & Co-Founder", "Cloud architect and AWS Fellow with deep expertise in distributed systems and microservices."),
+        new("James Whitfield", "VP of Engineering", "Led migration programs for major financial institutions across North America and Europe."),
+        new("Priya Nair", "Head of Cloud Strategy", "Azure MVP and former Microsoft consultant specializing in hybrid cloud architectures."),
+    ];
+}

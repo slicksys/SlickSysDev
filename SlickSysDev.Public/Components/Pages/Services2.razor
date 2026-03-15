@@ -1,0 +1,152 @@
+@page "/services2"
+
+<PageTitle>Services | Slicksys Development</PageTitle>
+
+<section class="bg-dark pt-5 pb-4">
+    <div class="container pt-5 mt-2 pb-2">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-3">
+                <li class="breadcrumb-item"><a href="/" class="text-white-50">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Services</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 text-white mb-3">Our Services</h1>
+        <p class="text-white-50 fs-lg mb-0" style="max-width: 640px;">
+            End-to-end legacy modernization services designed to move your enterprise to the cloud safely, efficiently, and on budget.
+        </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container py-2">
+        @foreach (var service in _services)
+        {
+            <div id="@service.Anchor" class="row align-items-center g-5 mb-5 pb-4 border-bottom">
+                <div class="col-lg-6 @(service.ImageRight ? "order-lg-1" : "")">
+                    <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-4 mb-4" style="width: 72px; height: 72px;">
+                        <i class="@service.Icon text-primary" style="font-size: 2rem;"></i>
+                    </div>
+                    <h2 class="mb-3">@service.Title</h2>
+                    <p class="text-muted mb-4">@service.Description</p>
+                    <ul class="list-unstyled mb-4">
+                        @foreach (var point in service.Points)
+                        {
+                            <li class="d-flex align-items-start gap-2 mb-2">
+                                <i class="bx bx-check-circle text-primary mt-1"></i>
+                                <span class="text-muted fs-sm">@point</span>
+                            </li>
+                        }
+                    </ul>
+                    <a href="/contact" class="btn btn-primary">Discuss This Service</a>
+                </div>
+                <div class="col-lg-6 @(service.ImageRight ? "" : "order-lg-1")">
+                    <div class="bg-secondary rounded-4 d-flex align-items-center justify-content-center" style="height: 320px;">
+                        <i class="@service.Icon text-primary opacity-25" style="font-size: 8rem;"></i>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<section class="py-5 bg-primary">
+    <div class="container py-2 text-center">
+        <h2 class="text-white mb-3">Not Sure Where to Start?</h2>
+        <p class="text-white opacity-75 mb-4" style="max-width: 560px; margin: 0 auto;">
+            Our free legacy assessment gives you a clear picture of your current systems, migration risks, and a recommended roadmap — at no cost.
+        </p>
+        <a href="/contact" class="btn btn-light btn-lg px-5">Request Free Assessment</a>
+    </div>
+</section>
+
+@code {
+    private record ServiceDetail(string Anchor, string Icon, string Title, string Description, List<string> Points, bool ImageRight);
+
+    private readonly List<ServiceDetail> _services =
+    [
+        new(
+            "assessment",
+            "bx bx-search-alt",
+            "Legacy Assessment",
+            "Before any migration begins, we conduct a thorough analysis of your existing systems to identify risks, dependencies, and the optimal modernization path. Our assessment delivers a detailed report with actionable recommendations.",
+            [
+                "Full inventory of applications, databases, and integrations",
+                "Technical debt and risk scoring for each system",
+                "Cloud readiness evaluation across AWS, Azure, and GCP",
+                "Prioritized migration roadmap with effort and cost estimates",
+                "Executive summary and stakeholder presentation",
+            ],
+            false
+        ),
+        new(
+            "migration",
+            "bx bx-cloud-upload",
+            "Cloud Migration",
+            "We execute lift-and-shift, re-platform, and re-host migrations with zero-downtime strategies. Our proven runbooks and automation tooling ensure your workloads land in the cloud securely and reliably.",
+            [
+                "Automated infrastructure provisioning with Terraform and Bicep",
+                "Blue-green and canary deployment strategies",
+                "Data migration with validation and rollback capabilities",
+                "Network and security configuration in the target cloud",
+                "Post-migration performance benchmarking",
+            ],
+            true
+        ),
+        new(
+            "rearchitecture",
+            "bx bx-git-branch",
+            "Re-Architecture & Modernization",
+            "Transform monolithic applications into cloud-native microservices. We decompose tightly coupled systems into independently deployable services using domain-driven design and event-driven architecture patterns.",
+            [
+                "Domain-driven design workshops with your engineering team",
+                "Microservices decomposition and API design",
+                "Event-driven architecture with Kafka or Azure Service Bus",
+                "Containerization with Docker and Kubernetes orchestration",
+                "CI/CD pipeline setup with GitHub Actions or Azure DevOps",
+            ],
+            false
+        ),
+        new(
+            "database",
+            "bx bx-data",
+            "Database Modernization",
+            "Migrate from on-premise relational databases to managed cloud database services. We handle schema conversion, data migration, and query optimization to ensure your data layer performs better in the cloud than it did on-premise.",
+            [
+                "Schema assessment and conversion for heterogeneous migrations",
+                "Migration from Oracle, SQL Server, DB2 to cloud-native databases",
+                "NoSQL adoption for appropriate workloads (MongoDB, Cosmos DB)",
+                "Data pipeline modernization with cloud-native ETL services",
+                "Performance tuning and index optimization post-migration",
+            ],
+            true
+        ),
+        new(
+            "security",
+            "bx bx-shield-quarter",
+            "Security & Compliance",
+            "Enterprise cloud migrations must meet strict security and regulatory requirements. We design and implement security controls that satisfy SOC 2, HIPAA, PCI-DSS, and FedRAMP requirements from day one.",
+            [
+                "Identity and access management with zero-trust architecture",
+                "Encryption at rest and in transit for all workloads",
+                "Compliance mapping for SOC 2, HIPAA, PCI-DSS, FedRAMP",
+                "Security information and event management (SIEM) setup",
+                "Penetration testing and vulnerability assessment",
+            ],
+            false
+        ),
+        new(
+            "support",
+            "bx bx-headphone",
+            "Post-Migration Support",
+            "Our engagement doesn't end at go-live. We provide structured hypercare support, knowledge transfer, and ongoing optimization to ensure your teams are confident and your systems continue to improve.",
+            [
+                "30/60/90-day hypercare support with dedicated engineers",
+                "Knowledge transfer and training for your internal teams",
+                "Cost optimization reviews and right-sizing recommendations",
+                "Performance monitoring and alerting setup",
+                "Quarterly architecture reviews and roadmap planning",
+            ],
+            true
+        ),
+    ];
+}

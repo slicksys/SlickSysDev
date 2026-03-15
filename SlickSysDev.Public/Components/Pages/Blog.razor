@@ -1,0 +1,168 @@
+@page "/blog"
+
+<PageTitle>Blog | Slicksys Development</PageTitle>
+
+<section class="bg-dark pt-5 pb-4">
+    <div class="container pt-5 mt-2 pb-2">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-3">
+                <li class="breadcrumb-item"><a href="/" class="text-white-50">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Blog</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 text-white mb-3">Insights &amp; Resources</h1>
+        <p class="text-white-50 fs-lg mb-0" style="max-width: 640px;">
+            Expert perspectives on legacy modernization, cloud architecture, and enterprise technology transformation.
+        </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container py-2">
+        <div class="row g-4 mb-4">
+            <div class="col-12">
+                <div class="d-flex flex-wrap gap-2">
+                    @foreach (var cat in _categories)
+                    {
+                        <button class="btn btn-sm @(_activeCategory == cat ? "btn-primary" : "btn-outline-secondary")"
+                                @onclick="@(() => SetCategory(cat))">
+                            @cat
+                        </button>
+                    }
+                </div>
+            </div>
+        </div>
+
+        @{
+            var filtered = _activeCategory == "All"
+                ? _posts
+                : _posts.Where(p => p.Category == _activeCategory).ToList();
+        }
+
+        @if (filtered.Any())
+        {
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        @foreach (var post in filtered)
+                        {
+                            <div class="col-12">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <div class="bg-secondary rounded-start d-flex align-items-center justify-content-center h-100" style="min-height: 200px;">
+                                                <i class="@post.Icon text-primary opacity-50" style="font-size: 4rem;"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body p-4 d-flex flex-column h-100">
+                                                <div class="d-flex align-items-center gap-2 mb-2">
+                                                    <span class="badge bg-primary bg-opacity-10 text-primary fs-xs">@post.Category</span>
+                                                    <span class="text-muted fs-xs">@post.ReadTime min read</span>
+                                                </div>
+                                                <h5 class="mb-2">@post.Title</h5>
+                                                <p class="text-muted fs-sm mb-3 flex-grow-1">@post.Excerpt</p>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-circle" style="width: 32px; height: 32px;">
+                                                            <i class="bx bx-user text-primary fs-sm"></i>
+                                                        </div>
+                                                        <div>
+                                                            <div class="fs-xs fw-semibold">@post.Author</div>
+                                                            <div class="fs-xs text-muted">@post.Date</div>
+                                                        </div>
+                                                    </div>
+                                                    <a href="/blog/@post.Slug" class="btn btn-outline-primary btn-sm">Read More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm p-4 mb-4">
+                        <h6 class="mb-3">Subscribe to Our Newsletter</h6>
+                        <p class="text-muted fs-sm mb-3">Get the latest insights on cloud migration and legacy modernization delivered to your inbox.</p>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="your@email.com" />
+                            <button class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </div>
+                    <div class="card border-0 shadow-sm p-4 mb-4">
+                        <h6 class="mb-3">Categories</h6>
+                        <ul class="list-unstyled mb-0">
+                            @foreach (var cat in _categories.Skip(1))
+                            {
+                                var count = _posts.Count(p => p.Category == cat);
+                                <li class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                                    <button class="btn btn-link p-0 text-decoration-none text-dark fs-sm" @onclick="@(() => SetCategory(cat))">@cat</button>
+                                    <span class="badge bg-secondary">@count</span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="card border-0 shadow-sm p-4">
+                        <h6 class="mb-3">Ready to Modernize?</h6>
+                        <p class="text-muted fs-sm mb-3">Start with a free assessment of your legacy systems.</p>
+                        <a href="/contact" class="btn btn-primary w-100">Get Free Assessment</a>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <i class="bx bx-search text-muted" style="font-size: 3rem;"></i>
+                <p class="text-muted mt-3">No posts found in this category.</p>
+                <button class="btn btn-outline-primary" @onclick="@(() => SetCategory("All"))">View All Posts</button>
+            </div>
+        }
+    </div>
+</section>
+
+@code {
+    private record BlogPost(string Title, string Excerpt, string Author, string Date, string Category, string Icon, int ReadTime, string Slug);
+
+    private string _activeCategory = "All";
+
+    private readonly List<string> _categories = ["All", "Cloud Migration", "Architecture", "Security", "Database", "DevOps", "Case Studies"];
+
+    private void SetCategory(string category) => _activeCategory = category;
+
+    private readonly List<BlogPost> _posts =
+    [
+        new(
+            "The Hidden Costs of Delaying Legacy Migration",
+            "Most enterprises underestimate the true cost of maintaining aging systems. We break down the technical debt, security risk, and opportunity cost that accumulates every year you delay modernization.",
+            "Marcus Chen", "Feb 28, 2026", "Cloud Migration", "bx bx-cloud", 8, "hidden-costs-legacy-migration"
+        ),
+        new(
+            "Strangler Fig Pattern: The Safest Way to Decompose a Monolith",
+            "The strangler fig pattern lets you incrementally replace a legacy monolith with microservices without a risky big-bang rewrite. Here's how we apply it in practice.",
+            "Sarah Okafor", "Feb 14, 2026", "Architecture", "bx bx-git-branch", 12, "strangler-fig-pattern-monolith"
+        ),
+        new(
+            "Zero-Trust Security for Cloud Migrations: A Practical Guide",
+            "Migrating to the cloud is the perfect opportunity to adopt a zero-trust security model. This guide walks through the key controls every enterprise migration should implement.",
+            "Priya Nair", "Jan 30, 2026", "Security", "bx bx-shield-quarter", 10, "zero-trust-cloud-migration"
+        ),
+        new(
+            "Oracle to PostgreSQL: Lessons from 50+ Database Migrations",
+            "After migrating over 50 Oracle databases to PostgreSQL on AWS and Azure, we've learned what works, what doesn't, and how to avoid the most common pitfalls.",
+            "James Whitfield", "Jan 15, 2026", "Database", "bx bx-data", 15, "oracle-to-postgresql-lessons"
+        ),
+        new(
+            "Building a Cloud-Native CI/CD Pipeline from a Legacy Build System",
+            "Replacing an aging Jenkins or TeamCity setup with GitHub Actions or Azure DevOps is often the first step in a broader modernization. Here's our recommended approach.",
+            "Sarah Okafor", "Dec 20, 2025", "DevOps", "bx bx-code-alt", 9, "cloud-native-cicd-legacy"
+        ),
+        new(
+            "Case Study: Migrating a 20-Year-Old Financial Platform to Azure",
+            "How we helped a regional bank migrate a mission-critical core banking system to Azure with zero downtime and full regulatory compliance — in under 18 months.",
+            "Marcus Chen", "Dec 5, 2025", "Case Studies", "bx bx-building-house", 14, "financial-platform-azure-migration"
+        ),
+    ];
+}

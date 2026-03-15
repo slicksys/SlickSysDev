@@ -1,0 +1,660 @@
+@page "/"
+
+@layout MainLayout
+
+<PageTitle>Slicksys Development | Legacy App Migration to Modern Cloud Architecture</PageTitle>
+
+
+<section class="page-loading">
+  <h2>Start Loading</h2>
+
+<PageLoadingSpinner />
+  <h2>End Loading</h2>
+
+</section><!-- Hero + BG parallax -->
+<section class="jarallax bg-dark min-vh-100" data-jarallax data-speed="0.4" data-bs-theme="dark">
+    <span class="position-absolute top-0 start-0 w-100 h-100"
+          style="background: radial-gradient(116.18% 118% at 50% 100%, rgba(99, 102, 241, 0.1) 0%, rgba(218, 70, 239, 0.05) 41.83%, rgba(241, 244, 253, 0.07) 82.52%);"></span>
+    <div class="jarallax-img" style="background-image: url(@Assets["images/landing/software-agency-2/hero-bg.png"]);"></div>
+    <div class="min-vh-100 d-flex flex-column py-5">
+
+        <div class="container position-relative text-center zindex-5 pt-4 pt-md-5 pb-5 mt-auto">
+            <div class="row mt-5">
+                <div class="col-xl-10 mx-auto">
+
+                    <h2 class="display-1 mb-md-4 pb-3">Modernization and <br>Migration Experts<br></h2>
+                    <h2>Engineering - Development - Integration<br></h2>
+                    <p class="text-body mx-auto mb-md-5 mb-4 pb-xl-2 pb-md-0 pb-sm-2 fs-5" style="max-width: 36.5rem;">
+                        Building digital excellence through innovation, strategic partnerships, systems modernization, cloud
+                        transformation.
+                    </p>
+                    <a href="#" class="btn btn-lg btn-primary shadow-primary">Trans-Modernize Your Business with SlickSys</a>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-auto pb-lg-2 pb-xl-3">
+            <ul class="list-unstyled d-flex align-items-start justify-content-center flex-wrap text-nowrap mt-xl-0 mt-md-n4 mt-sm-n3 mt-n2 ms-md-n4 ms-n3 mb-0 pt-lg-5 pt-md-4">
+                <li class="d-flex align-items-center text-body mt-md-4 mt-sm-3 mt-2 ms-md-4 ms-3">
+                    <i class="bx bx-check-circle me-2 fs-5 text-primary"></i>
+                    Extensive work experience
+                </li>
+                <li class="d-flex align-items-center text-body mt-md-4 mt-sm-3 mt-2 ms-md-4 ms-3">
+                    <i class="bx bx-check-circle me-2 fs-5 text-primary"></i>
+                    Flexible working conditions
+                </li>
+                <li class="d-flex align-items-center text-body mt-md-4 mt-sm-3 mt-2 ms-md-4 ms-3">
+                    <i class="bx bx-check-circle me-2 fs-5 text-primary"></i>
+                    Large and friendly team
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="container my-5 py-lg-5 py-md-4 pt-2 pb-3">
+    <h2 class="h1 mb-md-5 mb-4 py-xl-3 pb-lg-2 pb-md-0 pb-sm-2 text-center">Our Services</h2>
+
+    <planning>
+        <div class="row gy-4 mb-5 pb-xl-5 pb-md-4 pb-3">
+            <div class="col-lg-5 col-md-6 order-md-1 order-2 d-flex rellax" data-rellax-percentage="0.5"
+                 data-rellax-speed="-0.5" data-disable-parallax-down="md">
+                <div class="align-self-center pe-lg-0 pe-md-4">
+                    <h3 class="mb-md-4">Strategic Assessment & Modernization Planning</h3>
+                    <p class="mb-md-4 mb-3 fs-lg">
+                        Success in digital transformation begins with a comprehensive understanding
+                        of your business objectives, technology landscape, and transformation goals. This is often the most
+                        challenging
+                        phase of any modernization initiative. Our expert assessment process separates the wheat from the chaff
+                        and creates the foundation for risk-managed, cost-effective modernization.
+                    </p>
+                    <hr class="my-md-4 my-3">
+                    <ul class="list-unstyled d-flex flex-wrap mt-md-n3 mt-n2 ms-md-n4 ms-n3 mb-0 pb-lg-4 pb-md-2 fw-bold">
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            Business Value Analysis & ROI Mapping
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            Technology Stack Evaluation
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            Risk Assessment & Mitigation Strategy
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            Compliance & Security Review
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-lg btn-outline-primary w-sm-auto w-100 mt-4">Learn more</a>
+                </div>
+            </div>
+            <div class="col-md-6 offset-lg-1 order-md-2 order-1 rellax" data-rellax-percentage="0.5"
+                 data-rellax-speed="0.5" data-disable-parallax-down="md">
+                <div class="bg-secondary rounded-3">
+                    <img src="@Assets["images/landing/software-agency-2/services/planning.png"]" alt="Image"
+                         class="d-dark-mode-none d-block">
+                    <img src="@Assets["images/landing/software-agency-2/services/planning.png"]" alt="Image"
+                         class="d-dark-mode-block d-none">
+                </div>
+            </div>
+        </div>
+    </planning>
+
+    <sw-development>
+        <div class="row gy-4 mb-5 pb-xl-5 pb-md-4 pb-3">
+            <div class="col-lg-5 col-md-6 order-md-1 order-2 d-flex rellax" data-rellax-percentage="0.5"
+                 data-rellax-speed="-0.5" data-disable-parallax-down="md">
+                <div class="align-self-center pe-lg-0 pe-md-4">
+                    <h3 class="mb-md-4">Software Development</h3>
+                    <p class="mb-md-4 mb-3 fs`-lg">
+                        Whether it's AWS or Azure, C# or C++, Sql or NoSql, our approach to
+                        development combines subject matter expertise, enterprise-grade architecture with cutting-edge
+                        technologies to deliver scalable, maintainable solutions that drive business value. We design robust
+                        scalable systems that can easily grow with your business while reducing technical debt and maintenance
+                        costs.
+                    </p>
+                    <hr class="my-md-4 my-3">
+                    <ul class="list-unstyled d-flex flex-wrap mt-md-n3 mt-n2 ms-md-n4 ms-n3 mb-0 pb-lg-4 pb-md-2 fw-bold">
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            Cloud-Native Applications
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            Microservices Architecture
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            API Develop & Integration
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            DevSecOps Implementation
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center mt-n3 ms-n4 pb-lg-4 pb-md-2">
+                    </div>
+                    <a href="#" class="btn btn-lg btn-outline-primary w-sm-auto w-100 mt-4">Learn more</a>
+                </div>
+            </div>
+            <div class="col-md-6 offset-lg-1 order-md-2 order-1 rellax" data-rellax-percentage="0.5"
+                 data-rellax-speed="0.5" data-disable-parallax-down="md">
+                <div class="bg-secondary rounded-3">
+                    <img src="@Assets["images/landing/software-agency-2/services/developmemt.png"]" alt="Illustration"
+                         class="d-dark-mode-none d-block">
+                    <img src="@Assets["images/landing/software-agency-2/services/developmemt.png"]" alt="Illustration"
+                         class="d-dark-mode-block d-none">
+                </div>
+            </div>
+        </div>
+    </sw-development>
+
+    <data-engineering>
+        <div class="row gy-4 mb-5 pb-xl-5 pb-md-4 pb-3">
+            <div class="col-lg-5 col-md-6 order-md-1 order-2 d-flex rellax" data-rellax-percentage="0.5"
+                 data-rellax-speed="-0.5" data-disable-parallax-down="md">
+                <div class="align-self-center pe-lg-0 pe-md-4">
+                    <h3 class="mb-md-4">Data Engineering and Analytics</h3>
+                    <p class="mb-md-4 mb-3 fs-lg">
+                        Business often struggle with fragmented data across multiple systems, platforms, and databases. We
+                        transform this complex landscape into a unified, actionable source of truth. Our platform-agnostic
+                        approach ensures all your data assets - regardless of source or format - contribute to your business
+                        intelligence strategy.
+                    </p>
+                    <hr class="my-md-4 my-3">
+                    <ul class="list-unstyled d-flex flex-wrap mt-md-n3 mt-n2 ms-md-n4 ms-n3 mb-0 pb-lg-4 pb-md-2 fw-bold">
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            Cloud-Native Applications
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            Microservices Architecture
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            API Develop & Integration
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            DevSecOps Implementation
+                        </li>
+                    </ul>
+                    <!-- LOGOS -->
+                    <div class="d-flex align-items-center mt-n3 ms-n4 pb-lg-4 pb-md-2">
+                    </div>
+                    <!-- END LOGOS -->
+                    <a href="#" class="btn btn-lg btn-outline-primary w-sm-auto w-100 mt-4">Learn more</a>
+                </div>
+            </div>
+            <div class="col-md-6 offset-lg-1 order-md-2 order-1 rellax" data-rellax-percentage="0.5"
+                 data-rellax-speed="0.5" data-disable-parallax-down="md">
+                <div class="bg-secondary rounded-3">
+                    <img src="@Assets["images/landing/software-agency-2/services/02-light.png"]" alt="Illustration"
+                         class="d-dark-mode-none d-block">
+                    <img src="@Assets["images/landing/software-agency-2/services/02-dark.png"]" alt="Illustration"
+                         class="d-dark-mode-block d-none">
+                </div>
+            </div>
+        </div>
+    </data-engineering>
+
+    <devops>
+        <div class="row gy-4 mb-5 pb-xl-5 pb-md-4 pb-3">
+            <div class="col-lg-5 col-md-6 order-md-1 order-2 d-flex rellax" data-rellax-percentage="0.5"
+                 data-rellax-speed="-0.5" data-disable-parallax-down="md">
+                <div class="align-self-center pe-lg-0 pe-md-4">
+                    <h3 class="mb-md-4">DevOps and Integration</h3>
+                    <p class="mb-md-4 mb-3 fs`-lg">
+                        Regardless of platform, Agile development strategies depend on modern DevOps as an essential component
+                        of modern software development.
+                        Automated pipelines eliminate manual errors, reduce deployment risks, and transform release management
+                        from a source of stress into a
+                        competitive advantage, no matter whether the solution is a large monolithic application, or involves
+                        complex containerized distribution.
+                        Through automated and continuous integration and deployment (CI/CD), we help organizations deliver value
+                        faster and more reliably.
+                    </p>
+                    <hr class="my-md-4 my-3">
+                    <ul class="list-unstyled d-flex flex-wrap mt-md-n3 mt-n2 ms-md-n4 ms-n3 mb-0 pb-lg-4 pb-md-2 fw-bold">
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            Maintain 99.99% Up Time
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            CI/CD (Continuous Integration / Continuous Deployment)
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            Automated Integration and Regression Testing
+                        </li>
+                        <li class="mt-md-3 mt-2 ms-md-4 ms-3">
+                            <i class="bx bx-check-circle me-2 text-primary"></i>
+                            Infrastructure as Code
+                        </li>
+                    </ul>
+                    <!-- LOGOS -->
+                    <div class="d-flex align-items-center mt-n3 ms-n4 pb-lg-4 pb-md-2">
+                    </div>
+                    <!-- END LOGOS -->
+                    <a href="#" class="btn btn-lg btn-outline-primary w-sm-auto w-100 mt-4">Learn more</a>
+                </div>
+            </div>
+            <div class="col-md-6 offset-lg-1 order-md-2 order-1 rellax" data-rellax-percentage="0.5"
+                 data-rellax-speed="0.5" data-disable-parallax-down="md">
+                <div class="bg-secondary rounded-3">
+                    <img src="@Assets["images/landing/software-agency-2/companies.png"]" alt="Illustration"
+                         class="d-dark-mode-none d-block">
+                    <img src="@Assets["images/landing/software-agency-2/companies.png"]" alt="Illustration"
+                         class="d-dark-mode-block d-none">
+                </div>
+            </div>
+        </div>
+    </devops>
+</section>
+
+<!-- Our awards -->
+<section id="awards" class="position-relative py-5 bg-dark" style="display: none;">
+    <span class="position-absolute top-0 start-0 d-dark-mode-block d-none w-100 h-100 bg-secondary"></span>
+    <div class="position-relative container my-lg-5 my-md-4 my-3 py-xl-3" data-bs-theme="dark">
+        <h2 class="h1 mb-md-4 mb-3 text-center">Our Awards</h2>
+        <p class="text-body mb-md-5 mb-4 pb-xl-3 pb-lg-2 pb-md-0 pb-sm-2 mx-auto text-center"
+               style="max-width: 32.875rem;">
+            In blandit luctus proin mauris a commodo, dolor diam tempus, aenean magna fusce
+            eu. Id porttitor aliquam eget aliquet sagittis
+        </p>
+
+        <!-- Swiper slider -->
+        <div class="swiper mt-n1" data-swiper-options='{
+            "spaceBetween": 24,
+            "breakpoints": {
+            "0": {
+            "slidesPerView": 1
+            },
+            "500": {
+            "slidesPerView": 2
+            },
+            "768": {
+            "slidesPerView": 3
+            },
+            "1200": {
+            "slidesPerView": 4
+            }
+            },
+            "pagination": {
+            "el": ".swiper-pagination",
+            "clickable": true
+            }
+            }'>
+            <div class="swiper-wrapper">
+
+                <!-- Swiper item -->
+                <div class="swiper-slide h-auto pt-1">
+                    <div class="card shadow-sm card-hover position-relative h-100 py-md-1 px-md-2">
+                        <div class="card-body">
+                            <img src="@Assets["images/landing/software-agency-2/awards/clutch.png"]" width="170" alt="Clutch" class="">
+                            <div class="mt-5 pt-lg-5 pt-md-4 pt-sm-3">
+                                <h3 class="h5 mt-xl-4 mb-2 pt-lg-2 pb-1 d-flex align-items-center text-nowrap">
+                                    <a href="#" class="stretched-link">Learn more</a>
+                                    <i class="bx bx-right-arrow-circle ms-2 fs-3 text-primary"></i>
+                                </h3>
+                                <p class="mb-0">Phasellus eu ex ultrices, facilisis ex at aliquet felis rutrum ante.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper item -->
+                <div class="swiper-slide h-auto pt-1">
+                    <div class="card shadow-sm card-hover position-relative h-100 py-md-1 px-md-2">
+                        <div class="card-body">
+                            <img src="@Assets["images/landing/software-agency-2/awards/good-firms.png"]" width="170" alt="Clutch"
+                                 class="">
+                            <div class="mt-5 pt-lg-5 pt-md-4 pt-sm-3">
+                                <h3 class="h5 mt-xl-4 mb-2 pt-lg-2 pb-1 d-flex align-items-center text-nowrap">
+                                    <a href="#" class="stretched-link">Learn more</a>
+                                    <i class="bx bx-right-arrow-circle ms-2 fs-3 text-primary"></i>
+                                </h3>
+                                <p class="mb-0">Nulla pellentesque justo enim, in elementum turpis tincidunt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper item -->
+                <div class="swiper-slide h-auto pt-1">
+                    <div class="card shadow-sm card-hover position-relative h-100 py-md-1 px-md-2">
+                        <div class="card-body">
+                            <img src="@Assets["images/landing/software-agency-2/awards/product-hunt.png"]" width="170" alt="Clutch"
+                                 class="">
+                            <div class="mt-5 pt-lg-5 pt-md-4 pt-sm-3">
+                                <h3 class="h5 mt-xl-4 mb-2 pt-lg-2 pb-1 d-flex align-items-center text-nowrap">
+                                    <a href="#" class="stretched-link">Learn more</a>
+                                    <i class="bx bx-right-arrow-circle ms-2 fs-3 text-primary"></i>
+                                </h3>
+                                <p class="mb-0">Donec pulvinar iaculis ex laoreet vestibulum interdum viverra.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper item -->
+                <div class="swiper-slide h-auto pt-1">
+                    <div class="card shadow-sm card-hover position-relative h-100 py-md-1 px-md-2">
+                        <div class="card-body">
+                            <img src="@Assets["images/landing/software-agency-2/awards/awwwards.png"]" width="170" alt="Clutch" class="">
+                            <div class="mt-5 pt-lg-5 pt-md-4 pt-sm-3">
+                                <h3 class="h5 mt-xl-4 mb-2 pt-lg-2 pb-1 d-flex align-items-center text-nowrap">
+                                    <a href="#" class="stretched-link">Learn more</a>
+                                    <i class="bx bx-right-arrow-circle ms-2 fs-3 text-primary"></i>
+                                </h3>
+                                <p class="mb-0">Cras ullamcorper laoreet erat suscipit. Sed id lacus blandit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Swiper pagination -->
+            <div class="swiper-pagination position-static mt-4 pt-lg-3 pt-2"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Case Studies -->
+<div class="container my-5 py-lg-5 py-md-4 py-3" style="display: none;">
+    <h2 class="h1 mb-md-4 mb-3 pt-xl-3">Case Studies</h2>
+    <div class="row gy-sm-4 gy-3 mb-md-5 mb-4 pb-xl-2 pb-md-0 pb-sm-2">
+        <div class="col-md-6 col-12">
+            <p class="mb-0 fs-lg">
+                We bring real solutions to each client&apos;s problems through a deep understanding of
+                their market, solution, and vision.
+            </p>
+        </div>
+        <div class="col text-md-end">
+            <a href="#" class="btn btn-lg btn-outline-primary">See all case studies</a>
+        </div>
+    </div>
+
+    <!-- Swiper slider -->
+    <div class="swiper mb-xl-3" data-swiper-options='{
+        "spaceBetween": 24,
+        "breakpoints": {
+        "0": {
+        "slidesPerView": 1
+        },
+        "768": {
+        "slidesPerView": 2
+        }
+        },
+        "pagination": {
+        "el": ".swiper-pagination",
+        "clickable": true
+        }
+        }'>
+        <div class="swiper-wrapper">
+
+            <!-- Swiper item -->
+            <div class="swiper-slide h-auto pt-1">
+                <div class="card h-100">
+                    <img src="@Assets["images/landing/software-agency-2/case-studies/01.jpg"]" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Travelers Portal with Smart Search</h5>
+                        <p class="card-text mb-4 pb-md-3 fs-lg">
+                            Aenean sed mi ut erat venenatis imperdiet. Mauris sed turpis ac
+                            elit ultricies rhoncus id et magna donec euismod interdum risus.
+                        </p>
+                        <a href="#" class="btn btn-lg btn-outline-primary">See all case studies</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Swiper item -->
+            <div class="swiper-slide h-auto pt-1">
+                <div class="card h-100">
+                    <img src="@Assets["images/landing/software-agency-2/case-studies/02.jpg"]" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Fintech App for Financial Management</h5>
+                        <p class="card-text mb-4 pb-md-3 fs-lg">
+                            Nullam semper enim quis vulputate mollis. Donec ultrices
+                            elementum mauris, ac porttitor mi cursus eget vestibulum tellus sodales.
+                        </p>
+                        <a href="#" class="btn btn-lg btn-outline-primary">See all case studies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Swiper pagination -->
+        <div class="swiper-pagination position-static mt-4 pt-lg-3 pt-2"></div>
+    </div>
+</div>
+
+<!-- What Our Clients Say About Us -->
+<section class="container mb-5 pb-lg-5 pb-md-4 pb-3" style="margin-top: 50px;">
+    <div class="mb-xl-3">
+        <h2 class="h1 mb-md-5 mb-4 pb-xl-3 pb-lg-2 pb-md-0 pb-sm-2">What Our Clients Say About Us</h2>
+
+        <!-- Tabs -->
+        <div class="row gy-4 gx-md-4 gx-3">
+
+            <!-- Nav tabs -->
+            <div class="col-lg-4 col-sm-5 order-sm-1 order-2">
+                <ul class="nav nav-tabs flex-column" role="tablist">
+                    <li class="nav-item mb-3">
+                        <a href="#testimonial-1"
+                               class="nav-link flex-md-row flex-sm-column align-items-md-center align-items-sm-start align-items-center p-md-4 p-3 rounded-3 fw-normal active"
+                               data-bs-toggle="tab" role="tab">
+                            <img src="@Assets["images/avatar/48.jpg"]" width="56" alt="Avatar"
+                                 class="rounded-circle me-md-3 me-sm-0 me-3 mb-md-0 mb-sm-2">
+                            <div>
+                                <span class="d-block mb-0 fs-lg fw-semibold">James Anderson</span>
+                                CIO, DataFlow Inc.
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="#testimonial-2"
+                               class="nav-link flex-md-row flex-sm-column align-items-md-center align-items-sm-start align-items-center p-md-4 p-3 rounded-3 fw-normal"
+                               data-bs-toggle="tab" role="tab">
+                            <img src="@Assets["images/avatar/49.jpg"]" width="56" alt="Avatar"
+                                 class="rounded-circle me-md-3 me-sm-0 me-3 mb-md-0 mb-sm-2">
+                            <div>
+                                <span class="d-block mb-0 fs-lg fw-semibold">Sarah Martinez</span>
+                                VP of Glo-Tech Inc.
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item mb-0">
+                        <a href="#testimonial-3"
+                               class="nav-link flex-md-row flex-sm-column align-items-md-center align-items-sm-start align-items-center p-md-4 p-3 rounded-3 fw-normal"
+                               data-bs-toggle="tab" role="tab">
+                            <img src="@Assets["images/avatar/50.jpg"]" width="56" alt="Avatar"
+                                 class="rounded-circle me-md-3 me-sm-0 me-3 mb-md-0 mb-sm-2">
+                            <div>
+                                <span class="d-block mb-0 fs-lg fw-semibold">Michael Richardson</span>
+                                CTO, TechVision Solutions
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- Tabs content -->
+            <div class="col-sm-7 offset-lg-1 order-sm-2 order-1">
+                <div class="tab-content ps-lg-0 ps-md-4">
+                    <div class="tab-pane fade show active" id="testimonial-1" role="tabpanel">
+                        <h4 class="mb-3" style="max-width: 22.875rem;">
+                            “They're experts in their field and serious about
+                            security.”
+                        </h4>
+                        <div class="fs-sm text-nowrap">
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                        </div>
+                        <p class="mt-md-4 mt-3 pt-lg-3 pt-md-2 mb-0 fs-lg">
+                            SlickSys transformed our legacy systems into a modern,
+                            Azure cloud-native architecture. Their expertise in cloud
+                            technologies and integration helped us achieve a major
+                            improvement in deployment efficiency while finding many
+                            flaws in our security compliance model. Their team's technical
+                            prowess and strategic approach to the entire effort has exceeded
+                            our expectations.
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="testimonial-2" role="tabpanel">
+                        <h4 class="mb-3" style="max-width: 22.875rem;">
+                            “Experts in data, data science and analytics, they
+                            instilled confidence in our choice to hire them”
+                        </h4>
+                        <div class="fs-sm text-nowrap">
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                        </div>
+                        <p class="mt-md-4 mt-3 pt-lg-3 pt-md-2 mb-0 fs-lg">
+                            Working Christopher and SlickSys on our data integration project was a game-changer.
+                            They didn't just deliver a technical solution; they provided strategic insights that
+                            helped us unify data from spreadsheets stored on users machines, Access databases and
+                            SQL Server databases in4 locations and create a single information repository that can
+                            actually be managed in house. The ROI has been remarkable, with an approximate 60%
+                            reduction in data processing maintenance and the analytics are providing insights
+                            didn't know were possible.
+                        </p>
+                    </div>
+                    <div class="tab-pane fade" id="testimonial-3" role="tabpanel">
+                        <h4 class="mb-3" style="max-width: 22.875rem;">“Exceptional Service and Quality Results.”</h4>
+                        <div class="fs-sm text-nowrap">
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                            <i class="bx bxs-star text-warning"></i>
+                        </div>
+                        <p class="mt-md-4 mt-3 pt-lg-3 pt-md-2 mb-0 fs-lg">
+                            SlickSys's Team was instrumental in bringing our migration efforts fruition in time
+                            and under budget. The team was knowledgeable and easy to work with. Communication is
+                            incredibly important in long term efforts such as ours the SlickSys team were easy
+                            to understand and work with. The team's deep understanding of both technical
+                            requirements and business objectives made them an invaluable partner in our digital
+                            transformation journey.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sign up CTA -->
+<section class="container">
+    <div class="position-relative bg-dark rounded-3 overflow-hidden py-5 px-4 px-sm-0">
+        <span class="position-absolute top-0 start-0 d-block w-100 h-100"
+              style="background: radial-gradient(116.18% 118% at 50% 100%, rgba(99, 102, 241, 0.1) 0%, rgba(218, 70, 239, 0.05) 41.83%, rgba(241, 244, 253, 0.07) 82.52%);"></span>
+        <div class="position-relative row justify-content-center py-sm-2 py-lg-5">
+            <div class="col-xl-6 col-lg-7 col-md-8 col-sm-10 text-center">
+                <h2 class="h1 text-light mb-4">Ready to Get Started?</h2>
+                <p class="fs-lg text-light opacity-70 pb-4 mb-3">Write your email address so we can contact you</p>
+
+                <!-- Desktop form -->
+                <form class="input-group input-group-lg d-none d-sm-flex needs-validation mb-3" novalidate>
+                    <input type="email" class="form-control rounded-start ps-5" placeholder="Your email" required>
+                    <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
+                    <div class="invalid-tooltip position-absolute top-100 start-0">Please provide a valid email address.</div>
+                    <button type="submit" class="btn btn-primary">Get in touch</button>
+                </form>
+
+                <!-- Mobile form -->
+                <form class="needs-validation d-sm-none mb-3" novalidate>
+                    <div class="position-relative mb-3">
+                        <input type="email" class="form-control form-control-lg rounded-start ps-5" placeholder="Your email"
+                               required>
+                        <i class="bx bx-envelope fs-lg text-muted position-absolute top-50 start-0 translate-middle-y ms-3 zindex-5"></i>
+                        <div class="invalid-tooltip position-absolute top-0 start-0 mt-n4">
+                            Please provide a valid email address.
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100">Get in touch</button>
+                </form>
+                <p class="fs-sm text-light opacity-50 mb-0">No subscriptions. No annual fees. No lock-ins.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@code {
+    private record ServiceItem(string Icon, string Title, string Description);
+    private record MetricItem(string Icon, string Title, string Description);
+    private record StepItem(string Title, string Description);
+    private record TechItem(string Icon, string Name);
+    private record TestimonialItem(string Quote, string Name, string Role, string Initials);
+
+    private readonly List<ServiceItem> _services = new()
+    {
+        new("bx bx-transfer-alt", "Legacy Assessment & Strategy", "Deep-dive analysis of your existing systems to identify risks, dependencies, and the optimal migration path to the cloud."),
+        new("bx bx-cloud-upload", "Cloud Migration & Lift-Shift", "Seamless migration of on-premise workloads to AWS, Azure, or GCP with minimal downtime and zero data loss."),
+        new("bx bx-code-block", "Application Re-Architecture", "Transform monolithic legacy apps into microservices and cloud-native architectures built for scale and resilience."),
+        new("bx bx-data", "Database Modernization", "Migrate legacy databases to managed cloud services, improving performance, reliability, and reducing operational overhead."),
+        new("bx bx-shield-quarter", "Security & Compliance", "Embed security best practices and compliance frameworks (SOC 2, HIPAA, PCI-DSS) throughout the migration lifecycle."),
+        new("bx bx-support", "Managed Post-Migration Support", "Ongoing monitoring, optimization, and support to ensure your modernized systems perform at their peak after go-live."),
+    };
+
+    private readonly List<string> _whyUs = new()
+    {
+        "Zero-downtime migration strategies that keep your business running",
+        "Dedicated cloud architects with 15+ years of enterprise experience",
+        "Transparent fixed-price engagements with no hidden costs",
+        "Proven methodology used across 200+ successful migrations",
+        "Full knowledge transfer so your team owns the new system",
+        "Post-migration SLA guarantees and 24/7 support options",
+    };
+
+    private readonly List<MetricItem> _metrics = new()
+    {
+        new("bx bx-time-five", "Avg. 40% Faster Delivery", "Compared to in-house migration attempts"),
+        new("bx bx-trending-down", "60% Cost Reduction", "In infrastructure and maintenance costs"),
+        new("bx bx-shield-quarter", "Zero Data Loss", "Guaranteed across all migration engagements"),
+        new("bx bx-rocket", "3x Performance Gains", "Average improvement in application throughput"),
+    };
+
+    private readonly List<StepItem> _steps = new()
+    {
+        new("Discovery & Assessment", "We audit your legacy systems, document dependencies, and identify migration risks and opportunities."),
+        new("Migration Blueprint", "Our architects design a detailed cloud architecture and phased migration plan tailored to your goals."),
+        new("Iterative Migration", "We migrate in controlled sprints, validating each phase before proceeding to minimize risk."),
+        new("Optimize & Handover", "Post-migration tuning, documentation, and team training to ensure long-term success."),
+    };
+
+    private readonly List<TechItem> _technologies = new()
+    {
+        new("bx bxl-microsoft", "Azure"),
+        new("bx bxl-amazon", "AWS"),
+        new("bx bxl-google-cloud", "Google Cloud"),
+        new("bx bxl-docker", "Docker"),
+        new("bx bxl-kubernetes", "Kubernetes"),
+        new("bx bxl-net-framework", ".NET"),
+        new("bx bxl-nodejs", "Node.js"),
+        new("bx bxl-react", "React"),
+        new("bx bxl-postgresql", "PostgreSQL"),
+        new("bx bxl-mongodb", "MongoDB"),
+        new("bx bxl-github", "GitHub Actions"),
+        new("bx bx-data", "Terraform"),
+    };
+
+    private readonly List<TestimonialItem> _testimonials = new()
+    {
+        new("Slicksys migrated our 20-year-old ERP system to Azure in just 4 months. Zero downtime, zero data loss. Our infrastructure costs dropped by 55% in the first year.", "Marcus Chen", "CTO, Meridian Manufacturing", "MC"),
+        new("We had tried twice before with other vendors and failed. Slicksys came in, assessed the real blockers, and delivered a flawless migration. Highly recommend.", "Sarah Okafor", "VP Engineering, FinBridge Corp", "SO"),
+        new("The team's expertise in .NET modernization is unmatched. They re-architected our legacy monolith into microservices and our deployment frequency went from monthly to daily.", "James Whitfield", "Director of IT, HealthTrack Systems", "JW"),
+    };
+}
+

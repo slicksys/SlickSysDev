@@ -1,0 +1,118 @@
+@page "/account/signup"
+@layout AuthLayout
+
+<PageTitle>Slicksys Development | Create Account</PageTitle>
+
+<section class="position-relative h-100 pt-5 pb-4">
+    <div class="container d-flex flex-wrap justify-content-center justify-content-xl-start h-100 pt-5">
+        <div class="w-100 align-self-end pt-1 pt-md-4 pb-4" style="max-width: 526px;">
+            <h1 class="text-center text-xl-start">Create Account</h1>
+            <p class="text-center text-xl-start pb-3 mb-3">
+                Already have an account? <a href="/account/signin">Sign in here.</a>
+            </p>
+            <EditForm Model="Input" OnValidSubmit="HandleSignUp" FormName="signup" novalidate>
+                <DataAnnotationsValidator />
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="position-relative mb-4">
+                            <label for="name" class="form-label fs-base">Full name</label>
+                            <InputText id="name" class="form-control form-control-lg" @bind-Value="Input.FullName" />
+                            <ValidationMessage For="() => Input.FullName" class="invalid-feedback d-block" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="position-relative mb-4">
+                            <label for="email" class="form-label fs-base">Email</label>
+                            <InputText type="email" id="email" class="form-control form-control-lg" @bind-Value="Input.Email" />
+                            <ValidationMessage For="() => Input.Email" class="invalid-feedback d-block" />
+                        </div>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <label for="password" class="form-label fs-base">Password</label>
+                        <div class="password-toggle">
+                            <InputText type="password" id="password" class="form-control form-control-lg" @bind-Value="Input.Password" />
+                            <label class="password-toggle-btn" aria-label="Show/hide password">
+                                <input class="password-toggle-check" type="checkbox" />
+                                <span class="password-toggle-indicator"></span>
+                            </label>
+                            <ValidationMessage For="() => Input.Password" class="invalid-feedback d-block" />
+                        </div>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <label for="password-confirm" class="form-label fs-base">Confirm password</label>
+                        <div class="password-toggle">
+                            <InputText type="password" id="password-confirm" class="form-control form-control-lg" @bind-Value="Input.ConfirmPassword" />
+                            <label class="password-toggle-btn" aria-label="Show/hide password">
+                                <input class="password-toggle-check" type="checkbox" />
+                                <span class="password-toggle-indicator"></span>
+                            </label>
+                            <ValidationMessage For="() => Input.ConfirmPassword" class="invalid-feedback d-block" />
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="form-check">
+                        <InputCheckbox id="terms" class="form-check-input" @bind-Value="Input.AgreeToTerms" />
+                        <label for="terms" class="form-check-label fs-base">
+                            I agree to <a href="#">Terms &amp; Conditions</a>
+                        </label>
+                        <ValidationMessage For="() => Input.AgreeToTerms" class="invalid-feedback d-block" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary shadow-primary btn-lg w-100">Sign up</button>
+            </EditForm>
+            <hr class="my-4" />
+            <h6 class="text-center mb-4">Or sign up with your social network</h6>
+            <div class="row row-cols-1 row-cols-sm-2">
+                <div class="col mb-3">
+                    <a href="#" class="btn btn-icon btn-secondary btn-google btn-lg w-100">
+                        <i class="bx bxl-google fs-xl me-2"></i>
+                        Google
+                    </a>
+                </div>
+                <div class="col mb-3">
+                    <a href="#" class="btn btn-icon btn-secondary btn-facebook btn-lg w-100">
+                        <i class="bx bxl-facebook fs-xl me-2"></i>
+                        Facebook
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="w-100 align-self-end">
+            <p class="nav d-block fs-xs text-center text-xl-start pb-2 mb-0">
+                &copy; @DateTime.Now.Year All rights reserved. Slicksys Development
+            </p>
+        </div>
+    </div>
+    <div class="position-absolute top-0 end-0 w-50 h-100 bg-position-center bg-repeat-0 bg-size-cover d-none d-xl-block"
+         style="background-image: url(img/account/signin-bg.jpg);"></div>
+</section>
+
+@code {
+    private SignUpModel Input { get; set; } = new();
+
+    private void HandleSignUp()
+    {
+    }
+
+    private class SignUpModel
+    {
+        [Required(ErrorMessage = "Please enter your name!")]
+        public string FullName { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Please enter a valid email address!")]
+        [EmailAddress]
+        public string Email { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Please enter a password!")]
+        [MinLength(8, ErrorMessage = "Password must be at least 8 characters.")]
+        public string Password { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Please confirm your password!")]
+        [Compare(nameof(Password), ErrorMessage = "Passwords do not match.")]
+        public string ConfirmPassword { get; set; } = string.Empty;
+
+        [Range(typeof(bool), "true", "true", ErrorMessage = "You must agree to the Terms & Conditions.")]
+        public bool AgreeToTerms { get; set; }
+    }
+}

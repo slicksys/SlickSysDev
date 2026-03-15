@@ -1,0 +1,104 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NodeWorkDir>$(MSBuildProjectDirectory)</NodeWorkDir>
+    <RunNodeOnPublish>true</RunNodeOnPublish>
+    <RunNodeOnBuild>false</RunNodeOnBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
+    <NpmInstallCommand>cmd /c if not exist node_modules npm ci</NpmInstallCommand>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
+    <NpmInstallCommand>sh -c "if [ ! -d node_modules ]; then npm ci; fi"</NpmInstallCommand>
+  </PropertyGroup>
+  <Target Name="PrepublishNodeCheck" BeforeTargets="Publish" Condition="'$(RunNodeOnPublish)' == 'true'">
+    <Message Text="Checking for npm..." Importance="high" />
+    <Exec Command="npm -v" WorkingDirectory="$(NodeWorkDir)" StandardOutputImportance="low" IgnoreExitCode="false" />
+  </Target>
+  <Target Name="PrepublishNpm" BeforeTargets="Publish" Condition="'$(RunNodeOnPublish)' == 'true'">
+    <Message Text="Running npm ci and npm run build" Importance="high" />
+    <Exec Command="$(NpmInstallCommand)" WorkingDirectory="$(NodeWorkDir)" />
+    <Exec Command="npm run build" WorkingDirectory="$(NodeWorkDir)" />
+  </Target>
+
+  <ItemGroup>
+    <Content Include="assets\src\js\components\audio-player.js" />
+    <Content Include="assets\src\js\components\carousel.js" />
+    <Content Include="assets\src\js\components\element-parallax.js" />
+    <Content Include="assets\src\js\components\form-validation.js" />
+    <Content Include="assets\src\js\components\gallery.js" />
+    <Content Include="assets\src\js\components\hover-animation.js" />
+    <Content Include="assets\src\js\components\input-formatter.js" />
+    <Content Include="assets\src\js\components\masonry-grid.js" />
+    <Content Include="assets\src\js\components\parallax.js" />
+    <Content Include="assets\src\js\components\password-visibility-toggle.js" />
+    <Content Include="assets\src\js\components\popover.js" />
+    <Content Include="assets\src\js\components\price-switch.js" />
+    <Content Include="assets\src\js\components\range-slider.js" />
+    <Content Include="assets\src\js\components\scroll-top-button.js" />
+    <Content Include="assets\src\js\components\smooth-scroll.js" />
+    <Content Include="assets\src\js\components\sticky-navbar.js" />
+    <Content Include="assets\src\js\components\subscription-form.js" />
+    <Content Include="assets\src\js\components\toast.js" />
+    <Content Include="assets\src\js\components\tooltip.js" />
+    <Content Include="assets\src\js\components\video-button.js" />
+    <Content Include="assets\src\js\theme.js" />
+    <Content Include="assets\src\scss\components\_accordion.scss" />
+    <Content Include="assets\src\scss\components\_alert.scss" />
+    <Content Include="assets\src\scss\components\_audio-player.scss" />
+    <Content Include="assets\src\scss\components\_badge.scss" />
+    <Content Include="assets\src\scss\components\_breadcrumb.scss" />
+    <Content Include="assets\src\scss\components\_buttons.scss" />
+    <Content Include="assets\src\scss\components\_card.scss" />
+    <Content Include="assets\src\scss\components\_carousel.scss" />
+    <Content Include="assets\src\scss\components\_code.scss" />
+    <Content Include="assets\src\scss\components\_comparison-slider.scss" />
+    <Content Include="assets\src\scss\components\_dropdown.scss" />
+    <Content Include="assets\src\scss\components\_forms.scss" />
+    <Content Include="assets\src\scss\components\_gallery.scss" />
+    <Content Include="assets\src\scss\components\_list-group.scss" />
+    <Content Include="assets\src\scss\components\_modal.scss" />
+    <Content Include="assets\src\scss\components\_nav.scss" />
+    <Content Include="assets\src\scss\components\_navbar.scss" />
+    <Content Include="assets\src\scss\components\_offcanvas.scss" />
+    <Content Include="assets\src\scss\components\_pagination.scss" />
+    <Content Include="assets\src\scss\components\_parallax.scss" />
+    <Content Include="assets\src\scss\components\_placeholders.scss" />
+    <Content Include="assets\src\scss\components\_popover.scss" />
+    <Content Include="assets\src\scss\components\_progress.scss" />
+    <Content Include="assets\src\scss\components\_social-buttons.scss" />
+    <Content Include="assets\src\scss\components\_steps.scss" />
+    <Content Include="assets\src\scss\components\_tables.scss" />
+    <Content Include="assets\src\scss\components\_toasts.scss" />
+    <Content Include="assets\src\scss\components\_type.scss" />
+    <Content Include="assets\src\scss\theme.scss" />
+    <Content Include="assets\src\scss\_components.scss" />
+    <Content Include="assets\src\scss\_reboot.scss" />
+    <Content Include="assets\src\scss\_root.scss" />
+    <Content Include="assets\src\scss\_user-variables.scss" />
+    <Content Include="assets\src\scss\_user.scss" />
+    <Content Include="assets\src\scss\_utilities.scss" />
+    <Content Include="assets\src\scss\_variables-dark.scss" />
+    <Content Include="assets\src\scss\_variables.scss" />
+    <Content Remove="Components\Pages\Services\CustomDevelopment\Index.razor" />
+    <Content Remove="Components\Pages\AboutCopy.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="13.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SlickSysDev.ServiceDefaults\SlickSysDev.ServiceDefaults.csproj" />
+  </ItemGroup>
+  <Target Name="BuildNodeAssets" BeforeTargets="Build" Condition="'$(RunNodeOnBuild)' == 'true'">
+    <Message Text="Running npm ci and npm run build (Build phase)" Importance="high" />
+    <Exec Command="$(NpmInstallCommand)" WorkingDirectory="$(NodeWorkDir)" />
+    <Exec Command="npm run build" WorkingDirectory="$(NodeWorkDir)" />
+  </Target>
+</Project>
