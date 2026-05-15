@@ -1,0 +1,62 @@
+asset_name,asset_path,asset_kind,used_in_razor
+favicon.png,favicon.png,icon,"SlickSysDev.Admin/Components/App.razor; SlickSysDev.Web/Components/App.razor"
+apple-touch-icon.png,/favicon/apple-touch-icon.png,icon,SlickSysDev.Public/Components/App.razor
+favicon-32x32.png,/favicon/favicon-32x32.png,icon,SlickSysDev.Public/Components/App.razor
+favicon-16x16.png,/favicon/favicon-16x16.png,icon,SlickSysDev.Public/Components/App.razor
+safari-pinned-tab.svg,/favicon/safari-pinned-tab.svg,icon,SlickSysDev.Public/Components/App.razor
+favicon.ico,/favicon/favicon.ico,icon,SlickSysDev.Public/Components/App.razor
+logo.png,/images/logo.png,image,"SlickSysDev.Public/Components/Shared/NavBar.razor; SlickSysDev.Public/Components/Shared/Footer.razor; SlickSysDev.Public/Components/Shared/Privacy.razor; SlickSysDev.Public/Components/Shared/Terms.razor"
+landings.jpg,/images/landings.jpg,image,SlickSysDev.Public/Components/Shared/NavBar.razor
+hero-bg.svg,/images/about/hero-bg.svg,image,SlickSysDev.Public/Components/Pages/About.razor
+clutch-dark.png,/images/about/clutch-dark.png,image,SlickSysDev.Public/Components/Pages/About.razor
+clutch-light.png,/images/about/clutch-light.png,image,SlickSysDev.Public/Components/Pages/About.razor
+01.jpg,/images/about/hero/01.jpg,image,SlickSysDev.Public/Components/Pages/About.razor
+02.jpg,/images/about/hero/02.jpg,image,SlickSysDev.Public/Components/Pages/About.razor
+03.jpg,/images/about/hero/03.jpg,image,SlickSysDev.Public/Components/Pages/About.razor
+04.jpg,/images/about/hero/04.jpg,image,SlickSysDev.Public/Components/Pages/About.razor
+idea.svg,/images/landing/digital-agency/icons/idea.svg,icon,SlickSysDev.Public/Components/Pages/About.razor
+award.svg,/images/landing/digital-agency/icons/award.svg,icon,SlickSysDev.Public/Components/Pages/About.razor
+team.svg,/images/landing/digital-agency/icons/team.svg,icon,SlickSysDev.Public/Components/Pages/About.razor
+cover.jpg,/images/landing/digital-agency/cover.jpg,image,SlickSysDev.Public/Components/Pages/About.razor
+envato-gray.svg,/images/landing/digital-agency/awards/envato-gray.svg,icon,SlickSysDev.Public/Components/Pages/About.razor
+angular-gray.svg,/images/landing/digital-agency/awards/angular-gray.svg,icon,SlickSysDev.Public/Components/Pages/About.razor
+magento-gray.svg,/images/landing/digital-agency/awards/magento-gray.svg,icon,SlickSysDev.Public/Components/Pages/About.razor
+laravel-gray.svg,/images/landing/digital-agency/awards/laravel-gray.svg,icon,SlickSysDev.Public/Components/Pages/About.razor
+woocommerce-gray.svg,/images/landing/digital-agency/awards/woocommerce-gray.svg,icon,SlickSysDev.Public/Components/Pages/About.razor
+fwa.svg,/images/landing/digital-agency/awards/fwa.svg,icon,SlickSysDev.Public/Components/Pages/About.razor
+pingdom-gray.svg,/images/landing/digital-agency/awards/pingdom-gray.svg,icon,SlickSysDev.Public/Components/Pages/About.razor
+14.jpg,/images/avatar/14.jpg,image,SlickSysDev.Public/Components/Pages/About.razor
+13.jpg,/images/avatar/13.jpg,image,SlickSysDev.Public/Components/Pages/About.razor
+11.jpg,/images/avatar/11.jpg,image,SlickSysDev.Public/Components/Pages/About.razor
+01.jpg,/images/team/01.jpg,image,SlickSysDev.Public/Components/Pages/About.razor
+03.jpg,/images/team/03.jpg,image,SlickSysDev.Public/Components/Pages/About.razor
+contact-bg.png,/images/landing/digital-agency/contact-bg.png,image,SlickSysDev.Public/Components/Pages/About.razor
+hero-bg.png,/images/landing/software-agency-2/hero-bg.png,image,"SlickSysDev.Public/Components/Pages/Home.razor; SlickSysDev.Public/Components/Pages/HomeCopy.razor"
+hero-bg.jpg,/images/landing/saas-1/hero-bg.jpg,image,SlickSysDev.Public/Components/Pages/HomeCopy.razor
+planning.png,/images/landing/software-agency-2/services/planning.png,image,SlickSysDev.Public/Components/Pages/Home.razor
+developmemt.png,/images/landing/software-agency-2/services/developmemt.png,image,SlickSysDev.Public/Components/Pages/Home.razor
+02-light.png,/images/landing/software-agency-2/services/02-light.png,image,SlickSysDev.Public/Components/Pages/Home.razor
+02-dark.png,/images/landing/software-agency-2/services/02-dark.png,image,SlickSysDev.Public/Components/Pages/Home.razor
+companies.png,/images/landing/software-agency-2/companies.png,image,SlickSysDev.Public/Components/Pages/Home.razor
+clutch.png,/images/landing/software-agency-2/awards/clutch.png,image,"SlickSysDev.Public/Components/Pages/Home.razor; SlickSysDev.Public/Components/Pages/Bio.razor"
+good-firms.png,/images/landing/software-agency-2/awards/good-firms.png,image,SlickSysDev.Public/Components/Pages/Home.razor
+product-hunt.png,/images/landing/software-agency-2/awards/product-hunt.png,image,SlickSysDev.Public/Components/Pages/Home.razor
+awwwards.png,/images/landing/software-agency-2/awards/awwwards.png,image,SlickSysDev.Public/Components/Pages/Home.razor
+01.jpg,/images/landing/software-agency-2/case-studies/01.jpg,image,"SlickSysDev.Public/Components/Pages/Home.razor; SlickSysDev.Public/Components/Pages/Products.razor"
+02.jpg,/images/landing/software-agency-2/case-studies/02.jpg,image,SlickSysDev.Public/Components/Pages/Home.razor
+48.jpg,/images/avatar/48.jpg,image,SlickSysDev.Public/Components/Pages/Home.razor
+49.jpg,/images/avatar/49.jpg,image,SlickSysDev.Public/Components/Pages/Home.razor
+50.jpg,/images/avatar/50.jpg,image,SlickSysDev.Public/Components/Pages/Home.razor
+signin-bg.jpg,img/account/signin-bg.jpg,image,"SlickSysDev.Public/Components/Pages/Account/SignIn.razor; SlickSysDev.Public/Components/Pages/Account/SignUp.razor"
+01.jpg,/images/portfolio/slider/01.jpg,image,SlickSysDev.Public/Components/Pages/PortfolioSlider.razor
+02.jpg,/images/portfolio/slider/02.jpg,image,SlickSysDev.Public/Components/Pages/PortfolioSlider.razor
+03.jpg,/images/portfolio/slider/03.jpg,image,SlickSysDev.Public/Components/Pages/PortfolioSlider.razor
+01.svg,/images/brands/01.svg,icon,SlickSysDev.Public/Components/Pages/Services/CustomDevelopment/SoftwareEngineering.razor
+02.svg,/images/brands/02.svg,icon,SlickSysDev.Public/Components/Pages/Services/CustomDevelopment/SoftwareEngineering.razor
+03.svg,/images/brands/03.svg,icon,SlickSysDev.Public/Components/Pages/Services/CustomDevelopment/SoftwareEngineering.razor
+04.svg,/images/brands/04.svg,icon,SlickSysDev.Public/Components/Pages/Services/CustomDevelopment/SoftwareEngineering.razor
+05.svg,/images/brands/05.svg,icon,SlickSysDev.Public/Components/Pages/Services/CustomDevelopment/SoftwareEngineering.razor
+06.svg,/images/brands/06.svg,icon,SlickSysDev.Public/Components/Pages/Services/CustomDevelopment/SoftwareEngineering.razor
+image01.jpg,/images/services/single/image01.jpg,image,SlickSysDev.Public/Components/Pages/Services/CustomDevelopment/SoftwareEngineering.razor
+image02.jpg,/images/services/single/image02.jpg,image,SlickSysDev.Public/Components/Pages/Services/CustomDevelopment/SoftwareEngineering.razor
+

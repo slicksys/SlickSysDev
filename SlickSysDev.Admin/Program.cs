@@ -2,6 +2,9 @@ using SlickSysDev.Admin.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add service defaults & Aspire client integrations.
+builder.AddServiceDefaults();
+
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
@@ -23,5 +26,7 @@ app.UseAntiforgery();
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+
+app.MapDefaultEndpoints();
 
 app.Run();

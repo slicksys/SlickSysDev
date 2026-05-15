@@ -1,0 +1,40 @@
+insert into [dbo].[appointment] (
+    [practice_id],
+    [client_id],
+    [principal_id],
+    [resource_id],
+    [status_id],
+    [start_time],
+    [end_time],
+    [comments],
+    [group_id],
+    [recurrence_id],
+    [source]
+)
+output
+    inserted.[appointment_id],
+    inserted.[practice_id],
+    inserted.[client_id],
+    inserted.[principal_id],
+    inserted.[resource_id],
+    inserted.[status_id],
+    inserted.[start_time],
+    inserted.[end_time],
+    inserted.[comments],
+    inserted.[group_id],
+    inserted.[recurrence_id],
+    inserted.[source],
+    inserted.[is_deleted],
+    inserted.[created_at]
+select
+    @practice_id,
+    @client_id,
+    @principal_id,
+    @resource_id,
+    @status_id,
+    @start_time,
+    @end_time,
+    @comments,
+    @group_id,
+    @recurrence_id,
+    coalesce(@source, N'new');

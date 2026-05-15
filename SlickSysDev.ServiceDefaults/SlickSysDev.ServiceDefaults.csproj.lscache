@@ -1,0 +1,97 @@
+version=1
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+language=C#
+primary
+lastDtbSucceeded
+
+[properties]
+AssemblyName=SlickSysDev.ServiceDefaults
+CommandLineArgsForDesignTimeEvaluation=-langversion:13.0 -define:TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=13.0
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=SlickSysDev.ServiceDefaults
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=<PATH>../SlickSysDev.slnx
+TargetFrameworkIdentifier=.NETCoreApp
+TargetPath=<PATH>bin/Debug/net10.0/SlickSysDev.ServiceDefaults.dll
+TargetRefPath=<PATH>obj/Debug/net10.0/ref/SlickSysDev.ServiceDefaults.dll
+TemporaryDependencyNodeTargetIdentifier=net10.0
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:1701,1702,1701,1702
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/warn:1
+/define:TRACE;DEBUG;NET;NET10_0;NETCOREAPP;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP1_0_OR_GREATER;NETCOREAPP1_1_OR_GREATER;NETCOREAPP2_0_OR_GREATER;NETCOREAPP2_1_OR_GREATER;NETCOREAPP2_2_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER
+/highentropyva+
+/nullable:enable
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/out:obj\Debug\net10.0\SlickSysDev.ServiceDefaults.dll
+/refout:obj\Debug\net10.0\refint\SlickSysDev.ServiceDefaults.dll
+/target:library
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:13.0
+/warnaserror+:NU1605,SYSLIB0011
+
+[sourceFiles]
+Extensions.cs
+obj/Debug/net10.0/
+ .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+ SlickSysDev.ServiceDefaults.AssemblyInfo.cs
+ SlickSysDev.ServiceDefaults.GlobalUsings.g.cs
+
+[metadataReferences]
+<NUGET>/
+ microsoft.extensions.ambientmetadata.application/10.1.0/lib/net10.0/Microsoft.Extensions.AmbientMetadata.Application.dll
+ microsoft.extensions.compliance.abstractions/10.1.0/lib/net10.0/Microsoft.Extensions.Compliance.Abstractions.dll
+ microsoft.extensions.dependencyinjection.autoactivation/10.1.0/lib/net10.0/Microsoft.Extensions.DependencyInjection.AutoActivation.dll
+ microsoft.extensions.diagnostics.exceptionsummarization/10.1.0/lib/net10.0/Microsoft.Extensions.Diagnostics.ExceptionSummarization.dll
+ microsoft.extensions.http.diagnostics/10.1.0/lib/net10.0/Microsoft.Extensions.Http.Diagnostics.dll
+ microsoft.extensions.http.resilience/10.1.0/lib/net10.0/Microsoft.Extensions.Http.Resilience.dll
+ microsoft.extensions.resilience/10.1.0/lib/net10.0/Microsoft.Extensions.Resilience.dll
+ microsoft.extensions.servicediscovery.abstractions/10.1.0/lib/net10.0/Microsoft.Extensions.ServiceDiscovery.Abstractions.dll
+ microsoft.extensions.servicediscovery/10.1.0/lib/net10.0/Microsoft.Extensions.ServiceDiscovery.dll
+ microsoft.extensions.telemetry.abstractions/10.1.0/lib/net10.0/Microsoft.Extensions.Telemetry.Abstractions.dll
+ microsoft.extensions.telemetry/10.1.0/lib/net10.0/Microsoft.Extensions.Telemetry.dll
+ opentelemetry.api.providerbuilderextensions/1.14.0/lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll
+ opentelemetry.api/1.14.0/lib/net10.0/OpenTelemetry.Api.dll
+ opentelemetry.exporter.opentelemetryprotocol/1.14.0/lib/net10.0/OpenTelemetry.Exporter.OpenTelemetryProtocol.dll
+ opentelemetry.extensions.hosting/1.14.0/lib/net10.0/OpenTelemetry.Extensions.Hosting.dll
+ opentelemetry.instrumentation.aspnetcore/1.14.0/lib/net10.0/OpenTelemetry.Instrumentation.AspNetCore.dll
+ opentelemetry.instrumentation.http/1.14.0/lib/net10.0/OpenTelemetry.Instrumentation.Http.dll
+ opentelemetry.instrumentation.runtime/1.14.0/lib/net10.0/OpenTelemetry.Instrumentation.Runtime.dll
+ opentelemetry/1.14.0/lib/net10.0/OpenTelemetry.dll
+ polly.core/8.4.2/lib/net8.0/Polly.Core.dll
+ polly.extensions/8.4.2/lib/net8.0/Polly.Extensions.dll
+ polly.ratelimiting/8.4.2/lib/net8.0/Polly.RateLimiting.dll
+
+[analyzerReferences]
+<DOTNET>/sdk/9.0.313/Sdks/Microsoft.NET.Sdk/analyzers/
+ Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
+ Microsoft.CodeAnalysis.NetAnalyzers.dll
+<NUGET>/microsoft.extensions.telemetry.abstractions/10.1.0/analyzers/dotnet/cs/
+ Microsoft.Gen.Logging.dll
+ Microsoft.Gen.Metrics.dll
+
+[analyzerConfigFiles]
+<DOTNET>/sdk/9.0.313/Sdks/Microsoft.NET.Sdk/codestyle/cs/build/config/analysislevelstyle_default.globalconfig
+obj/Debug/net10.0/SlickSysDev.ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
