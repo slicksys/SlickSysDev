@@ -1,0 +1,22 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.3.2">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>4e161a9e-f5f5-4fa8-8130-9336e4e5519a</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SlickSysDev.Public\SlickSysDev.Public.csproj" />
+    <ProjectReference Include="..\SlickSysDev.Admin\SlickSysDev.Admin.csproj" />
+    <ProjectReference Include="..\SlickSysDev.ApiService\SlickSysDev.ApiService.csproj" />
+    <ProjectReference Include="..\SlickSysDev.Web\SlickSysDev.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.Redis" Version="13.3.2" />
+  </ItemGroup>
+
+</Project>

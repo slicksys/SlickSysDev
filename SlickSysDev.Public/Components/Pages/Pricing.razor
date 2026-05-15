@@ -1,0 +1,196 @@
+@page "/pricing"
+
+<PageTitle>Pricing | Slicksys Development</PageTitle>
+
+<section class="bg-dark pt-5 pb-4">
+    <div class="container pt-5 mt-2 pb-2">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-3">
+                <li class="breadcrumb-item"><a href="/" class="text-white-50">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Pricing</li>
+            </ol>
+        </nav>
+        <h1 class="display-5 text-white mb-3">Transparent Pricing</h1>
+        <p class="text-white-50 fs-lg mb-0" style="max-width: 640px;">
+            No hidden fees. No surprise invoices. Choose the engagement model that fits your migration scope and budget.
+        </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container py-2">
+        <div class="row g-4 justify-content-center mb-5">
+            @foreach (var plan in _plans)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow @(plan.Featured ? "border-primary border-2" : "") h-100">
+                        @if (plan.Featured)
+                        {
+                            <div class="card-header bg-primary text-white text-center py-2 fw-semibold fs-sm">Most Popular</div>
+                        }
+                        <div class="card-body p-4 d-flex flex-column">
+                            <h5 class="mb-1">@plan.Name</h5>
+                            <p class="text-muted fs-sm mb-4">@plan.Tagline</p>
+                            <div class="mb-4">
+                                <span class="display-6 fw-bold">@plan.Price</span>
+                                @if (!string.IsNullOrEmpty(plan.PriceSuffix))
+                                {
+                                    <span class="text-muted fs-sm ms-1">@plan.PriceSuffix</span>
+                                }
+                            </div>
+                            <ul class="list-unstyled mb-4 flex-grow-1">
+                                @foreach (var feature in plan.Features)
+                                {
+                                    <li class="d-flex align-items-start gap-2 mb-2">
+                                        <i class="bx bx-check-circle text-primary mt-1 flex-shrink-0"></i>
+                                        <span class="text-muted fs-sm">@feature</span>
+                                    </li>
+                                }
+                            </ul>
+                            <a href="/contact" class="btn @(plan.Featured ? "btn-primary" : "btn-outline-primary") w-100">@plan.CTA</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="text-center text-muted fs-sm">
+            All engagements begin with a <strong>free legacy assessment</strong>. Pricing above reflects typical project ranges. Final quotes are scoped after assessment.
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-secondary">
+    <div class="container py-2">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">What's Always Included</h2>
+            <p class="text-muted" style="max-width: 560px; margin: 0 auto;">
+                Regardless of the plan you choose, every Slicksys engagement includes these core commitments.
+            </p>
+        </div>
+        <div class="row g-4">
+            @foreach (var item in _included)
+            {
+                <div class="col-lg-3 col-md-6">
+                    <div class="card border-0 shadow-sm h-100 p-4 text-center">
+                        <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-3 mx-auto mb-3" style="width: 56px; height: 56px;">
+                            <i class="@item.Icon text-primary fs-3"></i>
+                        </div>
+                        <h6 class="mb-2">@item.Title</h6>
+                        <p class="text-muted fs-sm mb-0">@item.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container py-2" style="max-width: 800px;">
+        <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            @for (int i = 0; i < _faqs.Count; i++)
+            {
+                var faq = _faqs[i];
+                var idx = i;
+                <div class="accordion-item border-0 border-bottom mb-2">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button @(idx == 0 ? "" : "collapsed") fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq@(idx)">
+                            @faq.Question
+                        </button>
+                    </h3>
+                    <div id="faq@(idx)" class="accordion-collapse collapse @(idx == 0 ? "show" : "")" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body text-muted">@faq.Answer</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-primary">
+    <div class="container py-2 text-center">
+        <h2 class="text-white mb-3">Start with a Free Assessment</h2>
+        <p class="text-white opacity-75 mb-4" style="max-width: 560px; margin: 0 auto;">
+            Every engagement starts with a no-cost, no-obligation assessment. We scope the work together before you commit to anything.
+        </p>
+        <a href="/contact" class="btn btn-light btn-lg px-5">Request Free Assessment</a>
+    </div>
+</section>
+
+@code {
+    private record PricingPlan(string Name, string Tagline, string Price, string PriceSuffix, List<string> Features, string CTA, bool Featured);
+    private record IncludedItem(string Icon, string Title, string Description);
+    private record FaqItem(string Question, string Answer);
+
+    private readonly List<PricingPlan> _plans =
+    [
+        new(
+            "Starter",
+            "Ideal for small applications and proof-of-concept migrations",
+            "$25K",
+            "starting from",
+            [
+                "Free legacy assessment included",
+                "Up to 3 applications or services",
+                "Single cloud provider (AWS, Azure, or GCP)",
+                "Lift-and-shift or re-platform migration",
+                "30-day post-migration hypercare",
+                "Knowledge transfer sessions",
+            ],
+            "Get Started",
+            false
+        ),
+        new(
+            "Enterprise",
+            "For complex, multi-system migrations with compliance requirements",
+            "$150K",
+            "starting from",
+            [
+                "Free legacy assessment included",
+                "Unlimited applications and services",
+                "Multi-cloud and hybrid cloud support",
+                "Full re-architecture and modernization",
+                "Security & compliance (SOC 2, HIPAA, PCI-DSS)",
+                "90-day post-migration hypercare",
+                "Dedicated migration architect",
+                "Executive steering committee support",
+            ],
+            "Talk to Sales",
+            true
+        ),
+        new(
+            "Managed",
+            "Ongoing cloud operations and optimization after migration",
+            "$8K",
+            "/ month",
+            [
+                "24/7 cloud infrastructure monitoring",
+                "Incident response and remediation",
+                "Monthly cost optimization reviews",
+                "Security patching and updates",
+                "Quarterly architecture reviews",
+                "Dedicated support engineer",
+            ],
+            "Learn More",
+            false
+        ),
+    ];
+
+    private readonly List<IncludedItem> _included =
+    [
+        new("bx bx-search-alt", "Free Assessment", "Every engagement starts with a thorough assessment of your current systems at no cost."),
+        new("bx bx-shield-quarter", "Security Review", "We audit and harden your security posture as part of every migration."),
+        new("bx bx-book-open", "Documentation", "Full architecture documentation and runbooks delivered at project close."),
+        new("bx bx-group", "Knowledge Transfer", "We train your team so they can own and operate the new systems confidently."),
+    ];
+
+    private readonly List<FaqItem> _faqs =
+    [
+        new("How is the final project price determined?", "After the free assessment, we provide a fixed-price quote based on the number of systems, complexity, compliance requirements, and target cloud environment. There are no hourly billing surprises."),
+        new("Do you offer fixed-price or time-and-materials contracts?", "We primarily work on fixed-price engagements so you have budget certainty. For exploratory or research-heavy phases, we may use time-and-materials with a capped budget."),
+        new("What if the scope changes mid-project?", "We use a formal change control process. Any scope changes are documented, priced, and approved before work begins. We never add costs without your explicit sign-off."),
+        new("Can we start with a small pilot before committing to a full migration?", "Absolutely. Many clients start with a single application pilot to validate our methodology and build internal confidence before expanding to a full program."),
+        new("Do you work with government and regulated industries?", "Yes. We have extensive experience with FedRAMP, HIPAA, PCI-DSS, and SOC 2 compliance requirements and can support public sector and regulated enterprise clients."),
+    ];
+}

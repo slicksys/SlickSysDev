@@ -1,0 +1,142 @@
+version=1
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+language=C#
+primary
+lastDtbSucceeded
+
+[properties]
+AssemblyName=SlickSysDev.Web
+CommandLineArgsForDesignTimeEvaluation=-langversion:13.0 -define:TRACE
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=13.0
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=SlickSysDev.Web
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=<PATH>../SlickSysDev.slnx
+TargetFrameworkIdentifier=.NETCoreApp
+TargetPath=<PATH>bin/Debug/net10.0/SlickSysDev.Web.dll
+TargetRefPath=<PATH>obj/Debug/net10.0/ref/SlickSysDev.Web.dll
+TemporaryDependencyNodeTargetIdentifier=net10.0
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:1701,1702,1701,1702
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/warn:1
+/define:TRACE;DEBUG;NET;NET10_0;NETCOREAPP;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP1_0_OR_GREATER;NETCOREAPP1_1_OR_GREATER;NETCOREAPP2_0_OR_GREATER;NETCOREAPP2_1_OR_GREATER;NETCOREAPP2_2_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER
+/highentropyva+
+/nullable:enable
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/out:obj\Debug\net10.0\SlickSysDev.Web.dll
+/refout:obj\Debug\net10.0\refint\SlickSysDev.Web.dll
+/target:exe
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:13.0
+/warnaserror+:NU1605,SYSLIB0011
+
+[sourceFiles]
+obj/Debug/net10.0/
+ .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+ SlickSysDev.Web.AssemblyInfo.cs
+ SlickSysDev.Web.GlobalUsings.g.cs
+Program.cs
+WeatherApiClient.cs
+
+[metadataReferences]
+../SlickSysDev.ServiceDefaults/obj/Debug/net10.0/ref/SlickSysDev.ServiceDefaults.dll
+<NUGET>/
+ aspire.stackexchange.redis.outputcaching/13.3.2/lib/net10.0/Aspire.StackExchange.Redis.OutputCaching.dll
+ aspire.stackexchange.redis/13.3.2/lib/net10.0/Aspire.StackExchange.Redis.dll
+ aspnetcore.healthchecks.redis/9.0.0/lib/net8.0/HealthChecks.Redis.dll
+ microsoft.aspnetcore.outputcaching.stackexchangeredis/10.0.7/lib/net10.0/Microsoft.AspNetCore.OutputCaching.StackExchangeRedis.dll
+ microsoft.extensions.ambientmetadata.application/10.1.0/lib/net10.0/Microsoft.Extensions.AmbientMetadata.Application.dll
+ microsoft.extensions.compliance.abstractions/10.1.0/lib/net10.0/Microsoft.Extensions.Compliance.Abstractions.dll
+ microsoft.extensions.dependencyinjection.autoactivation/10.5.0/lib/net10.0/Microsoft.Extensions.DependencyInjection.AutoActivation.dll
+ microsoft.extensions.diagnostics.exceptionsummarization/10.1.0/lib/net10.0/Microsoft.Extensions.Diagnostics.ExceptionSummarization.dll
+ microsoft.extensions.http.diagnostics/10.1.0/lib/net10.0/Microsoft.Extensions.Http.Diagnostics.dll
+ microsoft.extensions.http.resilience/10.1.0/lib/net10.0/Microsoft.Extensions.Http.Resilience.dll
+ microsoft.extensions.resilience/10.1.0/lib/net10.0/Microsoft.Extensions.Resilience.dll
+ microsoft.extensions.servicediscovery.abstractions/10.1.0/lib/net10.0/Microsoft.Extensions.ServiceDiscovery.Abstractions.dll
+ microsoft.extensions.servicediscovery/10.1.0/lib/net10.0/Microsoft.Extensions.ServiceDiscovery.dll
+ microsoft.extensions.telemetry.abstractions/10.1.0/lib/net10.0/Microsoft.Extensions.Telemetry.Abstractions.dll
+ microsoft.extensions.telemetry/10.1.0/lib/net10.0/Microsoft.Extensions.Telemetry.dll
+ opentelemetry.api.providerbuilderextensions/1.15.3/lib/net10.0/OpenTelemetry.Api.ProviderBuilderExtensions.dll
+ opentelemetry.api/1.15.3/lib/net10.0/OpenTelemetry.Api.dll
+ opentelemetry.exporter.opentelemetryprotocol/1.14.0/lib/net10.0/OpenTelemetry.Exporter.OpenTelemetryProtocol.dll
+ opentelemetry.extensions.hosting/1.15.3/lib/net10.0/OpenTelemetry.Extensions.Hosting.dll
+ opentelemetry.instrumentation.aspnetcore/1.14.0/lib/net10.0/OpenTelemetry.Instrumentation.AspNetCore.dll
+ opentelemetry.instrumentation.http/1.14.0/lib/net10.0/OpenTelemetry.Instrumentation.Http.dll
+ opentelemetry.instrumentation.runtime/1.14.0/lib/net10.0/OpenTelemetry.Instrumentation.Runtime.dll
+ opentelemetry/1.15.3/lib/net10.0/OpenTelemetry.dll
+ pipelines.sockets.unofficial/2.2.8/lib/net5.0/Pipelines.Sockets.Unofficial.dll
+ polly.core/8.4.2/lib/net8.0/Polly.Core.dll
+ polly.extensions/8.4.2/lib/net8.0/Polly.Extensions.dll
+ polly.ratelimiting/8.4.2/lib/net8.0/Polly.RateLimiting.dll
+ stackexchange.redis/2.11.0/lib/net8.0/StackExchange.Redis.dll
+ system.io.hashing/10.0.3/lib/net10.0/System.IO.Hashing.dll
+
+[analyzerReferences]
+<DOTNET>/sdk/9.0.313/Sdks/Microsoft.NET.Sdk.Razor/source-generators/
+ Microsoft.AspNetCore.Razor.Utilities.Shared.dll
+ Microsoft.CodeAnalysis.Razor.Compiler.dll
+ Microsoft.Extensions.ObjectPool.dll
+ System.Collections.Immutable.dll
+<DOTNET>/sdk/9.0.313/Sdks/Microsoft.NET.Sdk.Web/analyzers/cs/
+ Microsoft.AspNetCore.Analyzers.dll
+ Microsoft.AspNetCore.Mvc.Analyzers.dll
+<DOTNET>/sdk/9.0.313/Sdks/Microsoft.NET.Sdk/analyzers/
+ Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll
+ Microsoft.CodeAnalysis.NetAnalyzers.dll
+<NUGET>/microsoft.extensions.telemetry.abstractions/10.1.0/analyzers/dotnet/cs/
+ Microsoft.Gen.Logging.dll
+ Microsoft.Gen.Metrics.dll
+
+[analyzerConfigFiles]
+<DOTNET>/sdk/9.0.313/Sdks/Microsoft.NET.Sdk/codestyle/cs/build/config/analysislevelstyle_default.globalconfig
+obj/Debug/net10.0/SlickSysDev.Web.GeneratedMSBuildEditorConfig.editorconfig
+
+[additionalFiles]
+Components/
+ App.razor
+ Layout/
+  MainLayout.razor
+  NavMenu.razor
+ Pages/
+  Counter.razor
+  Error.razor
+  Home.razor
+  Weather.razor
+ Routes.razor
+ _Imports.razor
+
+[dynamicFiles]
+Components/
+ App.razor
+ Layout/
+  MainLayout.razor
+  NavMenu.razor
+ Pages/
+  Counter.razor
+  Error.razor
+  Home.razor
+  Weather.razor
+ Routes.razor
+ _Imports.razor
