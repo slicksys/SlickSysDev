@@ -3,6 +3,16 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# IDE and AI tool directories
+.idea/
+.claude/
+.ai/
+.vscode/
+
+# Node modules
+**/node_modules/
+
+
 # User-specific files
 *.rsuser
 *.suo
