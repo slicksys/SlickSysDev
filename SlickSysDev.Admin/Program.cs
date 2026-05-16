@@ -9,6 +9,11 @@ builder.AddServiceDefaults();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddHttpClient<SlickSysDev.Admin.AppointmentsApiClient>(client =>
+{
+    client.BaseAddress = new("https+http://apiservice");
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
