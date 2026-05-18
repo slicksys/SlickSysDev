@@ -1,7 +1,46 @@
-﻿@page "/"
+@page "/"
+@inject SlickSysDev.Admin.Services.CrmDataService Crm
 
-<PageTitle>Home</PageTitle>
+<PageTitle>SlickSys CRM</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Field Service CRM Command Center</h1>
+<p class="lead">An integrated CRM for SMB teams that combines scheduling, accounting, visual AI estimation, and voice dispatching.</p>
 
-Welcome to your new app.
+@{
+    var kpis = Crm.GetKpis();
+}
+
+<div class="crm-grid">
+    <section class="crm-card">
+        <h3>Today's Jobs</h3>
+        <p class="crm-stat">@kpis.JobsToday</p>
+        <p>Auto-blocked using visual estimates and voice-dispatch triage.</p>
+    </section>
+
+    <section class="crm-card">
+        <h3>Emergency Mix</h3>
+        <p class="crm-stat">@kpis.EmergencyRateDisplay</p>
+        <p>Prioritized by AI based on call context and detected damage severity.</p>
+    </section>
+
+    <section class="crm-card">
+        <h3>Outstanding Receivables</h3>
+        <p class="crm-stat">@kpis.OutstandingReceivables.ToString("C")</p>
+        <p>Accounting module tracks unpaid and overdue balances in real-time.</p>
+    </section>
+
+    <section class="crm-card">
+        <h3>Monthly Revenue</h3>
+        <p class="crm-stat">@kpis.MonthlyRevenue.ToString("C")</p>
+        <p>Pipeline includes every AI-booked appointment and generated invoice.</p>
+    </section>
+</div>
+
+<section class="crm-card mt-3">
+    <h3>What's special in this CRM</h3>
+    <ul>
+        <li><strong>Multi-Modal Visual Estimator:</strong> accepts customer photo uploads to produce a preliminary price + duration and reserve the right calendar capacity.</li>
+        <li><strong>Conversational Voice Dispatcher:</strong> simulates a Twilio + conversational AI receptionist that triages calls and books from real-time availability.</li>
+        <li><strong>Operator Dashboard:</strong> a Blazor admin UX where owners manage estimates, appointments, call logs, and accounting in one flow.</li>
+    </ul>
+</section>

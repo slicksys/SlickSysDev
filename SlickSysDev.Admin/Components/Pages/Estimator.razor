@@ -1,0 +1,130 @@
+@page "/estimator"
+@rendermode InteractiveServer
+@inject SlickSysDev.Admin.Services.CrmDataService Crm
+
+<PageTitle>Visual Estimator</PageTitle>
+
+<h1>Multi-Modal Visual Estimator</h1>
+<p>Upload a customer photo, let AI propose quote + duration, then book directly.</p>
+
+<div class="crm-grid">
+    <section class="crm-card">
+        <EditForm Model="input" OnValidSubmit="GenerateEstimate">
+            <DataAnnotationsValidator />
+
+            <label>Industry</label>
+            <InputSelect class="form-select mb-2" @bind-Value="input.Industry">
+                @foreach (var industry in Enum.GetValues<ServiceIndustry>())
+                {
+                    <option value="@industry">@industry</option>
+                }
+            </InputSelect>
+
+            <label>Customer</label>
+            <InputText class="form-control mb-2" @bind-Value="customerName" />
+
+            <label>Requested Service</label>
+            <InputText class="form-control mb-2" @bind-Value="input.ServiceType" />
+
+            <label>Photo Upload</label>
+            <InputFile OnChange="OnUpload" class="form-control mb-2" />
+
+            @if (input.Industry == ServiceIndustry.Grooming)
+            {
+                <label>Pet Size</label>
+                <InputSelect class="form-select mb-2" @bind-Value="input.Size">
+                    @foreach (var size in Enum.GetValues<PetSize>())
+                    {
+                        <option value="@size">@size</option>
+                    }
+                </InputSelect>
+
+                <label>Coat Condition</label>
+                <InputSelect class="form-select mb-2" @bind-Value="input.CoatCondition">
+                    @foreach (var coat in Enum.GetValues<CoatCondition>())
+                    {
+                        <option value="@coat">@coat</option>
+                    }
+                </InputSelect>
+            }
+            else
+            {
+                <label>Pipe Material</label>
+                <InputSelect class="form-select mb-2" @bind-Value="input.PipeMaterial">
+                    @foreach (var material in Enum.GetValues<PipeMaterial>())
+                    {
+                        <option value="@material">@material</option>
+                    }
+                </InputSelect>
+
+                <label>Visible Damage</label>
+                <InputSelect class="form-select mb-2" @bind-Value="input.VisibleDamage">
+                    @foreach (var damage in Enum.GetValues<DamageSeverity>())
+                    {
+                        <option value="@damage">@damage</option>
+                    }
+                </InputSelect>
+            }
+
+            <button class="btn btn-primary me-2" type="submit">Generate AI estimate</button>
+            <button class="btn btn-success" type="button" @onclick="BookEstimate" disabled="@(estimate is null)">Book appointment</button>
+        </EditForm>
+    </section>
+
+    <section class="crm-card">
+        <h3>AI Output</h3>
+        @if (estimate is null)
+        {
+            <p>No estimate generated yet.</p>
+        }
+        else
+        {
+            <p><strong>Descriptor:</strong> @estimate.Descriptor</p>
+            <p><strong>Estimated price:</strong> @estimate.EstimatedPrice.ToString("C")</p>
+            <p><strong>Duration to block:</strong> @estimate.DurationMinutes min</p>
+            <p><strong>Priority tag:</strong> @estimate.Priority</p>
+            <p><strong>Summary:</strong> @estimate.Summary</p>
+        }
+
+        @if (recentBooking is not null)
+        {
+            <hr />
+            <h4>Booking created</h4>
+            <p>@recentBooking.Customer on @recentBooking.Start.ToString("f")</p>
+            <p>Appointment ID: @recentBooking.Id</p>
+        }
+    </section>
+</div>
+
+@code {
+    private EstimatorInput input = new()
+    {
+        Industry = ServiceIndustry.Grooming,
+        ServiceType = "Full groom",
+        Size = PetSize.Medium,
+        CoatCondition = CoatCondition.Healthy
+    };
+    private string customerName = "New Customer";
+    private VisualEstimateResult? estimate;
+    private AppointmentRecord? recentBooking;
+
+    private void OnUpload(InputFileChangeEventArgs args)
+    {
+        input.PhotoName = args.File.Name;
+    }
+
+    private void GenerateEstimate()
+    {
+        estimate = Crm.GenerateVisualEstimate(input);
+    }
+
+    private void BookEstimate()
+    {
+        if (estimate is null)
+        {
+            return;
+        }
+
+        recentBooking = Crm.BookAppointment(customerName, input.Industry, input.ServiceType, DateTime.Now.AddHours(2), estimate);
+    }
+}
