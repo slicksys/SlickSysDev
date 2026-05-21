@@ -1,0 +1,39 @@
+@page "/appointments"
+@inject SlickSysDev.Admin.Services.CrmDataService Crm
+
+<PageTitle>Appointments</PageTitle>
+
+<h1>Appointment Scheduling</h1>
+<p>Dynamic capacity planning across grooming and plumbing operations.</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Industry</th>
+            <th>Service</th>
+            <th>Start</th>
+            <th>Duration</th>
+            <th>Quote</th>
+            <th>Priority</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appt in Crm.GetAppointments())
+        {
+            <tr>
+                <td>@appt.Id</td>
+                <td>@appt.Customer</td>
+                <td>@appt.Industry</td>
+                <td>@appt.ServiceType</td>
+                <td>@appt.Start.ToString("g")</td>
+                <td>@appt.DurationMinutes min</td>
+                <td>@appt.EstimatedPrice.ToString("C")</td>
+                <td>
+                    <span class="badge @(appt.Priority == AppointmentPriority.Emergency ? "text-bg-danger" : "text-bg-secondary")">@appt.Priority</span>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

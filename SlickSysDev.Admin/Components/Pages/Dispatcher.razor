@@ -1,0 +1,79 @@
+@page "/dispatcher"
+@rendermode InteractiveServer
+@inject SlickSysDev.Admin.Services.CrmDataService Crm
+
+<PageTitle>Voice Dispatcher</PageTitle>
+
+<h1>Conversational Voice Dispatcher</h1>
+<p>Twilio-style AI receptionist flow backed by strict SQL availability checks (simulated in this prototype).</p>
+
+<div class="crm-grid">
+    <section class="crm-card">
+        <EditForm Model="request" OnValidSubmit="RunDispatch">
+            <label>Caller Name</label>
+            <InputText class="form-control mb-2" @bind-Value="request.CallerName" />
+
+            <label>Phone</label>
+            <InputText class="form-control mb-2" @bind-Value="request.Phone" />
+
+            <label>Industry</label>
+            <InputSelect class="form-select mb-2" @bind-Value="request.Industry">
+                @foreach (var industry in Enum.GetValues<ServiceIndustry>())
+                {
+                    <option value="@industry">@industry</option>
+                }
+            </InputSelect>
+
+            <label>Call Summary</label>
+            <InputText class="form-control mb-2" @bind-Value="request.ServiceDescription" />
+
+            <div class="form-check mb-3">
+                <InputCheckbox class="form-check-input" @bind-Value="request.IsEmergency" />
+                <label class="form-check-label">Emergency call</label>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Run AI triage + book</button>
+        </EditForm>
+    </section>
+
+    <section class="crm-card">
+        <h3>Dispatch Result</h3>
+        @if (result is null)
+        {
+            <p>No dispatch run yet.</p>
+        }
+        else
+        {
+            <p><strong>Appointment:</strong> @result.Appointment.Id for @result.Appointment.Customer</p>
+            <p><strong>Scheduled:</strong> @result.Appointment.Start.ToString("f")</p>
+            <p><strong>Priority:</strong> @result.Appointment.Priority</p>
+            <p><strong>AI Recommendation:</strong> @result.Recommendation</p>
+        }
+
+        <hr />
+        <h3>Recent call log</h3>
+        <ul>
+            @foreach (var call in Crm.GetCallLogs().Take(6))
+            {
+                <li>@call.Timestamp.ToString("t") - @call.Phone - @call.Topic (@call.Outcome)</li>
+            }
+        </ul>
+    </section>
+</div>
+
+@code {
+    private DispatchRequest request = new()
+    {
+        CallerName = "Alex Parker",
+        Phone = "(555) 018-4411",
+        Industry = ServiceIndustry.Plumbing,
+        ServiceDescription = "Water heater leak",
+        IsEmergency = false
+    };
+    private VoiceDispatchResult? result;
+
+    private void RunDispatch()
+    {
+        result = Crm.RunDispatch(request);
+    }
+}
