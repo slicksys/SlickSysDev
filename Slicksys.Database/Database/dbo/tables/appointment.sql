@@ -1,0 +1,22 @@
+create table [dbo].[appointment] (
+    [appointment_id] uniqueidentifier not null constraint [df_appointment_appointment_id] default (newid()),
+    [practice_id] uniqueidentifier not null,
+    [client_id] uniqueidentifier not null,
+    [principal_id] uniqueidentifier null,
+    [resource_id] uniqueidentifier null,
+    [status_id] uniqueidentifier not null,
+    [start_time] datetime2(0) not null,
+    [end_time] datetime2(0) not null,
+    [comments] nvarchar(2000) null,
+    [group_id] uniqueidentifier null,
+    [recurrence_id] uniqueidentifier null,
+    [source] nvarchar(50) not null constraint [df_appointment_source] default (N'new'),
+    [is_deleted] bit not null constraint [df_appointment_is_deleted] default ((0)),
+    [created_at] datetime2(0) not null constraint [df_appointment_created_at] default (sysdatetime()),
+    constraint [pk_appointment] primary key clustered ([appointment_id]),
+    constraint [fk_appointment_practice] foreign key ([practice_id]) references [dbo].[practice] ([practice_id]),
+    constraint [fk_appointment_client] foreign key ([client_id]) references [dbo].[client] ([client_id]),
+    constraint [fk_appointment_principal] foreign key ([principal_id]) references [dbo].[principal] ([principal_id]),
+    constraint [fk_appointment_resource] foreign key ([resource_id]) references [dbo].[resource] ([resource_id]),
+    constraint [fk_appointment_status] foreign key ([status_id]) references [dbo].[appointment_status] ([status_id])
+);

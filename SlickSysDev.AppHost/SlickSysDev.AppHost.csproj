@@ -12,11 +12,13 @@
     <ProjectReference Include="..\SlickSysDev.Public\SlickSysDev.Public.csproj" />
     <ProjectReference Include="..\SlickSysDev.Admin\SlickSysDev.Admin.csproj" />
     <ProjectReference Include="..\SlickSysDev.ApiService\SlickSysDev.ApiService.csproj" />
+    <ProjectReference Include="..\SlickSysDev.Data.Api\ManagementData.Api.csproj" />
     <ProjectReference Include="..\SlickSysDev.Web\SlickSysDev.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.Redis" Version="13.3.2" />
+    <PackageReference Include="Aspire.Hosting" Version="13.3.5" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="13.3.5" />
   </ItemGroup>
 
 </Project>

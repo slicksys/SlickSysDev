@@ -1,0 +1,1 @@
+:r .\scripts\seed_lookup_data.sql

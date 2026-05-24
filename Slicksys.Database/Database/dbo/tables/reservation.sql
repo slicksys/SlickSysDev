@@ -1,0 +1,21 @@
+create table [dbo].[reservation] (
+    [reservation_id] uniqueidentifier not null constraint [df_reservation_reservation_id] default (newid()),
+    [practice_id] uniqueidentifier not null,
+    [client_id] uniqueidentifier not null,
+    [principal_id] uniqueidentifier null,
+    [arrival_date] datetime2(0) not null,
+    [ending_date] datetime2(0) not null,
+    [status_id] uniqueidentifier not null,
+    [visual_status_id] uniqueidentifier null,
+    [hospitalized_flag] bit not null constraint [df_reservation_hospitalized_flag] default ((0)),
+    [comments] nvarchar(2000) null,
+    [source] nvarchar(50) not null constraint [df_reservation_source] default (N'new'),
+    [is_deleted] bit not null constraint [df_reservation_is_deleted] default ((0)),
+    [created_at] datetime2(0) not null constraint [df_reservation_created_at] default (sysdatetime()),
+    constraint [pk_reservation] primary key clustered ([reservation_id]),
+    constraint [fk_reservation_practice] foreign key ([practice_id]) references [dbo].[practice] ([practice_id]),
+    constraint [fk_reservation_client] foreign key ([client_id]) references [dbo].[client] ([client_id]),
+    constraint [fk_reservation_principal] foreign key ([principal_id]) references [dbo].[principal] ([principal_id]),
+    constraint [fk_reservation_status] foreign key ([status_id]) references [dbo].[reservation_status] ([status_id]),
+    constraint [fk_reservation_visual_status] foreign key ([visual_status_id]) references [dbo].[reservation_status] ([status_id])
+);
