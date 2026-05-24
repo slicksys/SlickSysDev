@@ -12,6 +12,7 @@
     <ProjectReference Include="..\SlickSysDev.Public\SlickSysDev.Public.csproj" />
     <ProjectReference Include="..\SlickSysDev.Admin\SlickSysDev.Admin.csproj" />
     <ProjectReference Include="..\SlickSysDev.ApiService\SlickSysDev.ApiService.csproj" />
+    <ProjectReference Include="..\SlickSysDev.Data.Api\ManagementData.Api.csproj" />
     <ProjectReference Include="..\SlickSysDev.Web\SlickSysDev.Web.csproj" />
   </ItemGroup>
 

@@ -5,6 +5,9 @@ var cache = builder.AddRedis("cache");
 var apiService = builder.AddProject<Projects.SlickSysDev_ApiService>("apiservice")
     .WithHttpHealthCheck("/health");
 
+var dataApi = builder.AddProject<Projects.ManagementData_Api>("managementdata-api")
+    .WithHttpHealthCheck("/health");
+
 builder.AddProject<Projects.SlickSysDev_Web>("webfrontend")
     .WithExternalHttpEndpoints()
     .WithHttpHealthCheck("/health")

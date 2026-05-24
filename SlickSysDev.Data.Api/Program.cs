@@ -7,6 +7,8 @@ using ManagementData.Api.Features.Scheduling;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
 DefaultTypeMap.MatchNamesWithUnderscores = true;
 
 builder.Services.AddApplicationServices(builder.Configuration);
@@ -15,6 +17,7 @@ var app = builder.Build();
 
 app.UseApplicationPipeline();
 app.MapApplicationEndpoints();
+app.MapDefaultEndpoints();
 
 app.Run();
 
