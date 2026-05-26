@@ -1,0 +1,35 @@
+@page "/accounting"
+@inject SlickSysDev.Admin.Services.CrmService Crm
+
+<PageTitle>Accounting</PageTitle>
+
+<h1>Accounting</h1>
+<p>Lightweight operating ledger for SMB service teams.</p>
+
+<div class="row g-3 mb-3">
+    <div class="col-md-4"><div class="card"><div class="card-body"><strong>Revenue</strong><div>@Crm.TotalRevenue.ToString("C")</div></div></div></div>
+    <div class="col-md-4"><div class="card"><div class="card-body"><strong>Expense</strong><div>@Crm.TotalExpense.ToString("C")</div></div></div></div>
+    <div class="col-md-4"><div class="card"><div class="card-body"><strong>Net</strong><div>@Crm.NetIncome.ToString("C")</div></div></div></div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var entry in Crm.Ledger)
+    {
+        <tr>
+            <td>@entry.Date.ToString("yyyy-MM-dd")</td>
+            <td>@entry.Category</td>
+            <td>@entry.Description</td>
+            <td class="@(entry.IsIncome ? "text-success" : "text-danger")">@(entry.IsIncome ? "+" : "-")@entry.Amount.ToString("C")</td>
+        </tr>
+    }
+    </tbody>
+</table>

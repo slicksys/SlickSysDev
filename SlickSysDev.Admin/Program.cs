@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddSingleton<SlickSysDev.Admin.Services.CrmService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
