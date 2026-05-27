@@ -369,5 +369,11 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
+removed_packages/
+
+.aspire/
+
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+aspire.config.json

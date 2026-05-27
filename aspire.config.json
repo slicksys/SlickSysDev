@@ -1,5 +1,6 @@
 {
   "appHost": {
-    "path": "SlickSysDev.AppHost/SlickSysDev.AppHost.csproj"
+    "path": "SlickSysDev.AppHost/SlickSysDev.AppHost.csproj",
+    "language": "csharp"
   }
 }
