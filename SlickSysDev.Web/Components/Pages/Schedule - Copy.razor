@@ -1,0 +1,231 @@
+@page "/schedule"
+@rendermode InteractiveServer
+@inject SchedulingApiClient SchedulingApi
+
+<PageTitle>Schedule Appointment</PageTitle>
+
+<h1>Schedule an Appointment</h1>
+
+@if (confirmationMessage is not null)
+{
+    <div class="alert alert-success mt-3" role="alert">
+        <h4 class="alert-heading">Appointment Confirmed!</h4>
+        <p>@confirmationMessage</p>
+        <hr />
+        <button class="btn btn-outline-success" @onclick="ResetForm">Schedule Another</button>
+    </div>
+}
+else
+{
+    <div class="row mt-3">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header"><strong>1. Choose a Date</strong></div>
+                <div class="card-body">
+                    <label class="form-label">Select a date:</label>
+                    <input type="date" class="form-control"
+                           min="@DateTime.Today.ToString("yyyy-MM-dd")"
+                           value="@selectedDate.ToString("yyyy-MM-dd")"
+                           @onchange="OnDateChanged" />
+
+                    @if (isLoadingSlots)
+                    {
+                        <div class="mt-3">
+                            <em>Loading available times...</em>
+                        </div>
+                    }
+                    else if (slots.Count > 0)
+                    {
+                        <div class="mt-3">
+                            <label class="form-label">Available times:</label>
+                            <div class="d-flex flex-wrap gap-2">
+                                @foreach (var slot in slots)
+                                {
+                                    var s = slot;
+                                    <button class="btn @(s.Start == selectedSlot ? "btn-primary" : s.IsAvailable ? "btn-outline-primary" : "btn-outline-secondary")"
+                                            disabled="@(!s.IsAvailable)"
+                                            @onclick="() => SelectSlot(s.Start)">
+                                        @s.Start.ToString("h:mm tt")
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="mt-3 text-muted">
+                            <em>No available times for this date. Try a weekday.</em>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header"><strong>2. Your Details</strong></div>
+                <div class="card-body">
+                    <EditForm Model="form" OnValidSubmit="SubmitAppointment" FormName="scheduleForm">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary class="text-danger" />
+
+                        <div class="mb-3">
+                            <label class="form-label">Full Name *</label>
+                            <InputText class="form-control" @bind-Value="form.ClientName" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email *</label>
+                            <InputText class="form-control" type="email" @bind-Value="form.ClientEmail" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <InputText class="form-control" @bind-Value="form.ClientPhone" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Service Type *</label>
+                            <InputSelect class="form-select" @bind-Value="form.ServiceType">
+                                <option value="">-- Select a service --</option>
+                                <option value="Consultation">Consultation</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="System Design">System Design</option>
+                                <option value="Code Review">Code Review</option>
+                                <option value="Technical Support">Technical Support</option>
+                            </InputSelect>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Notes (optional)</label>
+                            <InputTextArea class="form-control" rows="3" @bind-Value="form.Notes" />
+                        </div>
+
+                        @if (selectedSlot.HasValue)
+                        {
+                            <div class="alert alert-info">
+                                <strong>Selected time:</strong> @selectedDate.ToString("MMMM dd, yyyy") at @selectedSlot.Value.ToString("h:mm tt")
+                            </div>
+                        }
+
+                        @if (errorMessage is not null)
+                        {
+                            <div class="alert alert-danger">@errorMessage</div>
+                        }
+
+                        <button type="submit" class="btn btn-success"
+                                disabled="@(isSubmitting || !selectedSlot.HasValue || string.IsNullOrWhiteSpace(form.ClientName) || string.IsNullOrWhiteSpace(form.ClientEmail) || string.IsNullOrWhiteSpace(form.ServiceType))">
+                            @if (isSubmitting)
+                            {
+                                <span class="spinner-border spinner-border-sm me-1" role="status"></span>
+                            }
+                            Book Appointment
+                        </button>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private DateTime selectedDate = DateTime.Today;
+    private DateTime? selectedSlot;
+    private List<TimeSlotDto> slots = [];
+    private bool isLoadingSlots;
+    private bool isSubmitting;
+    private string? confirmationMessage;
+    private string? errorMessage;
+    private ScheduleFormModel form = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Default to next weekday if today is weekend
+        while (selectedDate.DayOfWeek is DayOfWeek.Saturday or DayOfWeek.Sunday)
+            selectedDate = selectedDate.AddDays(1);
+
+        await LoadSlots();
+    }
+
+    private async Task OnDateChanged(ChangeEventArgs e)
+    {
+        if (DateTime.TryParse(e.Value?.ToString(), out var date))
+        {
+            selectedDate = date;
+            selectedSlot = null;
+            await LoadSlots();
+        }
+    }
+
+    private async Task LoadSlots()
+    {
+        isLoadingSlots = true;
+        try
+        {
+            slots = await SchedulingApi.GetAvailableSlotsAsync(selectedDate);
+        }
+        catch
+        {
+            slots = [];
+        }
+        isLoadingSlots = false;
+    }
+
+    private void SelectSlot(DateTime slotTime)
+    {
+        selectedSlot = slotTime;
+        errorMessage = null;
+    }
+
+    private async Task SubmitAppointment()
+    {
+        if (!selectedSlot.HasValue) return;
+
+        isSubmitting = true;
+        errorMessage = null;
+
+        var request = new AppointmentRequestDto
+        {
+            ClientName = form.ClientName,
+            ClientEmail = form.ClientEmail,
+            ClientPhone = form.ClientPhone,
+            ServiceType = form.ServiceType,
+            ScheduledAt = selectedSlot.Value,
+            Notes = form.Notes
+        };
+
+        try
+        {
+            var result = await SchedulingApi.BookAppointmentAsync(request);
+            if (result.Success && result.Appointment is not null)
+            {
+                confirmationMessage = $"Your appointment for {result.Appointment.ServiceType} on {result.Appointment.ScheduledAt:MMMM dd, yyyy} at {result.Appointment.ScheduledAt:h:mm tt} has been booked. You will receive a confirmation at {result.Appointment.ClientEmail}.";
+            }
+            else
+            {
+                errorMessage = result.ErrorMessage ?? "Unable to book appointment. Please try again.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
+    }
+
+    private void ResetForm()
+    {
+        form = new();
+        selectedSlot = null;
+        confirmationMessage = null;
+        errorMessage = null;
+    }
+
+    private class ScheduleFormModel
+    {
+        public string ClientName { get; set; } = string.Empty;
+        public string ClientEmail { get; set; } = string.Empty;
+        public string ClientPhone { get; set; } = string.Empty;
+        public string ServiceType { get; set; } = string.Empty;
+        public string? Notes { get; set; }
+    }
+}

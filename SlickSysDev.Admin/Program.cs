@@ -12,6 +12,10 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddSingleton<CrmDataService>();
 builder.Services.AddSingleton<CrmService>();
+builder.Services.AddHttpClient<SlickSysDev.Admin.AppointmentsApiClient>(client =>
+{
+    client.BaseAddress = new("https+http://apiservice");
+});
 
 var app = builder.Build();
 

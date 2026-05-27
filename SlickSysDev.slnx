@@ -13,4 +13,5 @@
   <Project Path="SlickSysDev.Public/SlickSysDev.Public.csproj" />
   <Project Path="SlickSysDev.ServiceDefaults/SlickSysDev.ServiceDefaults.csproj" />
   <Project Path="SlickSysDev.Web/SlickSysDev.Web.csproj" />
+  <Project Path="Utils/Utils.csproj" Id="d3603d84-c8fb-4c64-b9b9-06775be651d3" />
 </Solution>
