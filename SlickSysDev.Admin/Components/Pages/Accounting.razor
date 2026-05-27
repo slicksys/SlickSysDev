@@ -1,0 +1,42 @@
+@page "/accounting"
+@inject SlickSysDev.Admin.Services.CrmDataService Crm
+
+<PageTitle>Accounting</PageTitle>
+
+<h1>Accounting & Receivables</h1>
+<p>Generated automatically from every booked job.</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Invoice</th>
+            <th>Customer</th>
+            <th>Issue Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var invoice in Crm.GetInvoices())
+        {
+            <tr>
+                <td>@invoice.Id</td>
+                <td>@invoice.Customer</td>
+                <td>@invoice.IssueDate.ToShortDateString()</td>
+                <td>@invoice.Amount.ToString("C")</td>
+                <td>
+                    <span class="badge @StatusBadge(invoice.Status)">@invoice.Status</span>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private static string StatusBadge(PaymentStatus status) => status switch
+    {
+        PaymentStatus.Paid => "text-bg-success",
+        PaymentStatus.Pending => "text-bg-warning",
+        _ => "text-bg-danger"
+    };
+}

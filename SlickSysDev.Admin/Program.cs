@@ -1,3 +1,4 @@
+using SlickSysDev.Admin.Services;
 using SlickSysDev.Admin.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,9 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddSingleton<CrmDataService>();
+builder.Services.AddSingleton<CrmService>();
 
 var app = builder.Build();
 

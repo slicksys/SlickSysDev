@@ -1,0 +1,82 @@
+@page "/voice-dispatcher"
+@inject SlickSysDev.Admin.Services.CrmService Crm
+
+<PageTitle>Voice Dispatcher</PageTitle>
+
+<h1>Conversational Voice Dispatcher</h1>
+<p>Simulated Twilio + AI call intake. The dispatcher triages, assigns priority, and books into real calendar slots.</p>
+
+<EditForm Model="_model" OnValidSubmit="HandleCall">
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label class="form-label">Caller name</label>
+            <InputText class="form-control" @bind-Value="_model.Caller" />
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Vertical</label>
+            <InputSelect class="form-select" @bind-Value="_model.Vertical">
+                <option value="@SlickSysDev.Admin.Domain.ServiceVertical.Plumbing">Plumbing</option>
+                <option value="@SlickSysDev.Admin.Domain.ServiceVertical.Grooming">Grooming</option>
+            </InputSelect>
+        </div>
+        <div class="col-12">
+            <label class="form-label">Call transcript summary</label>
+            <InputTextArea class="form-control" rows="3" @bind-Value="_model.Summary" />
+        </div>
+        <div class="col-12">
+            <button class="btn btn-dark" type="submit">Process inbound call</button>
+        </div>
+    </div>
+</EditForm>
+
+@if (_lastCall is not null)
+{
+    <div class="alert alert-info mt-3">
+        <strong>Call dispatched:</strong> @_lastCall.Caller — @_lastCall.Priority route at @_lastCall.AppointmentStart.ToString("h:mm tt") on @_lastCall.AppointmentDate.ToString("yyyy-MM-dd").
+    </div>
+}
+
+<h2 class="h4 mt-4">Recent Calls</h2>
+<table class="table table-bordered table-sm">
+    <thead>
+    <tr>
+        <th>Time (UTC)</th>
+        <th>Caller</th>
+        <th>Summary</th>
+        <th>Priority</th>
+        <th>Route</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var call in Crm.Calls)
+    {
+        <tr>
+            <td>@call.Timestamp.ToString("u")</td>
+            <td>@call.Caller</td>
+            <td>@call.TranscriptSummary</td>
+            <td>@call.Priority</td>
+            <td>@call.RouteCluster</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@code {
+    private readonly CallForm _model = new();
+    private SlickSysDev.Admin.Domain.DispatchCall? _lastCall;
+
+    private void HandleCall()
+    {
+        _lastCall = Crm.CreateVoiceDispatch(
+            string.IsNullOrWhiteSpace(_model.Caller) ? "Unknown caller" : _model.Caller,
+            _model.Vertical,
+            _model.Summary ?? string.Empty);
+    }
+
+    private sealed class CallForm
+    {
+        public string? Caller { get; set; }
+        public SlickSysDev.Admin.Domain.ServiceVertical Vertical { get; set; } = SlickSysDev.Admin.Domain.ServiceVertical.Plumbing;
+        public string? Summary { get; set; }
+    }
+}
