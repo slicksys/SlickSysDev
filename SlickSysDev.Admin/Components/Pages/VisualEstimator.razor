@@ -1,0 +1,94 @@
+@page "/visual-estimator"
+@inject SlickSysDev.Admin.Services.CrmService Crm
+
+<PageTitle>Visual Estimator</PageTitle>
+
+<h1>Multi-Modal Visual Estimator</h1>
+<p>Upload a customer image + issue details to create a preliminary quote and schedule block.</p>
+
+<EditForm Model="_model" OnValidSubmit="RunEstimate">
+    <DataAnnotationsValidator />
+    <div class="row g-3">
+        <div class="col-md-3">
+            <label class="form-label">Vertical</label>
+            <InputSelect class="form-select" @bind-Value="_model.Vertical">
+                <option value="@SlickSysDev.Admin.Domain.ServiceVertical.Grooming">Grooming</option>
+                <option value="@SlickSysDev.Admin.Domain.ServiceVertical.Plumbing">Plumbing</option>
+            </InputSelect>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Customer</label>
+            <InputText class="form-control" @bind-Value="_model.Customer" />
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Upload filename</label>
+            <InputText class="form-control" @bind-Value="_model.Filename" />
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Requested start time</label>
+            <InputDate class="form-control" @bind-Value="_model.Date" />
+        </div>
+        <div class="col-12">
+            <label class="form-label">Issue details</label>
+            <InputTextArea class="form-control" rows="3" @bind-Value="_model.Issue" />
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Analyze + Schedule</button>
+        </div>
+    </div>
+</EditForm>
+
+@if (_result is not null)
+{
+    <div class="card mt-4">
+        <div class="card-body">
+            <h2 class="h5">AI Estimate Result</h2>
+            <p>@_result.VisionSummary</p>
+            <ul>
+                <li>Quote: @_result.BaseQuote.ToString("C")</li>
+                <li>Duration: @_result.EstimatedMinutes minutes</li>
+                <li>Priority: @_result.Priority</li>
+            </ul>
+            <h3 class="h6">Recommended tasks</h3>
+            <ul>
+                @foreach (var task in _result.RecommendedTasks)
+                {
+                    <li>@task</li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+
+@if (_appointmentMessage is not null)
+{
+    <div class="alert alert-success mt-3">@_appointmentMessage</div>
+}
+
+@code {
+    private readonly EstimateForm _model = new();
+    private SlickSysDev.Admin.Domain.EstimateResult? _result;
+    private string? _appointmentMessage;
+
+    private void RunEstimate()
+    {
+        _result = Crm.RunVisualEstimate(_model.Vertical, _model.Filename ?? string.Empty, _model.Issue ?? string.Empty);
+        var appointment = Crm.BookFromEstimate(
+            string.IsNullOrWhiteSpace(_model.Customer) ? "Unknown customer" : _model.Customer,
+            _result,
+            DateOnly.FromDateTime(_model.Date),
+            new TimeOnly(13, 0),
+            "Visual estimator");
+
+        _appointmentMessage = $"Scheduled {appointment.Customer} on {appointment.Date:yyyy-MM-dd} for {appointment.DurationMinutes} minutes.";
+    }
+
+    private sealed class EstimateForm
+    {
+        public SlickSysDev.Admin.Domain.ServiceVertical Vertical { get; set; } = SlickSysDev.Admin.Domain.ServiceVertical.Grooming;
+        public string? Customer { get; set; }
+        public string? Filename { get; set; }
+        public string? Issue { get; set; }
+        public DateTime Date { get; set; } = DateTime.Today;
+    }
+}

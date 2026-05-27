@@ -11,6 +11,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddSingleton<CrmDataService>();
+builder.Services.AddSingleton<CrmService>();
 
 var app = builder.Build();
 
