@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Dapper.Contrib.Extensions;
 
-namespace SlickSysDev.ApiService
+namespace SlickSysDev.ApiService.Model
 {
     /// <summary>
     /// A user attached to an account
@@ -19,7 +18,7 @@ namespace SlickSysDev.ApiService
         public string Roles { get; set; }
         public bool IsActive { get; set; }
         public string Password { get; set; }   //stored encrypted
-        [Computed]
+
         public string DecryptedPassword
         {
             get { return Decrypt(Password); }
