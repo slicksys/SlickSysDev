@@ -377,3 +377,6 @@ removed_packages/
 FodyWeavers.xsd
 
 aspire.config.json
+/.$SystemDiagram.drawio.bkp
+/Entities_Based_On_Pet123.zip
+/SystemDiagram.drawio
