@@ -8,43 +8,44 @@ namespace SlickSysDev.ApiService.Model
     /// <summary>
     /// A account with users
     /// </summary>
-public class Appointment : BaseEntity
-{
-    public Guid AppointmentId { get; set; }
+    public class Appointment : BaseEntity
+    {
+        public Guid AppointmentId { get; set; }
 
-    public Guid PracticeId { get; set; }
+        public Guid PracticeId { get; set; }
 
-    public Guid ClientId { get; set; }
+        public Guid ClientId { get; set; }
 
-    public Guid? PrincipalId { get; set; }
+        public Guid? PrincipalId { get; set; }
 
-    public Guid? ResourceId { get; set; }
+        public Guid? ResourceId { get; set; }
 
-    public Guid StatusId { get; set; }
+        public Guid StatusId { get; set; }
 
-    public DateTime StartTime { get; set; }
+        public DateTime StartTime { get; set; }
 
-    public DateTime EndTime { get; set; }
+        public DateTime EndTime { get; set; }
 
-    public string Comments { get; set; }
+        public string Comments { get; set; }
 
-    public Guid? GroupId { get; set; }
+        public Guid? GroupId { get; set; }
 
-    public Guid? RecurrenceId { get; set; }
+        public Guid? RecurrenceId { get; set; }
 
-    public string Source { get; set; }
+        public string Source { get; set; }
 
-    public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; }
 
-    public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
 
-    public virtual Client Client { get; set; }
+        public virtual Client Client { get; set; }
 
-    public virtual Practice Practice { get; set; }
+        public virtual Practice Practice { get; set; }
 
-    public virtual Principal Principal { get; set; }
+        public virtual Principal Principal { get; set; }
 
-    public virtual Resource Resource { get; set; }
+        public virtual Resource Resource { get; set; }
 
-    public virtual AppointmentStatus Status { get; set; }
+        public virtual AppointmentStatus Status { get; set; }
+    }
 }
