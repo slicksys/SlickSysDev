@@ -3,16 +3,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace SlickSysDev.ApiService
-{
-    /// <summary>
-    /// A account with users
-    /// </summary>
-    public class Appointment : BaseEntity
-{
-    public Guid AppointmentId { get; set; }
+namespace SlickSysDev.ApiService.Model;
 
+public partial class ScheduleBoard : BaseEntity
+{
     public Guid PracticeId { get; set; }
+
+    public Guid? AppointmentId { get; set; }
+
+    public Guid? ReservationId { get; set; }
 
     public Guid ClientId { get; set; }
 
@@ -20,7 +19,13 @@ namespace SlickSysDev.ApiService
 
     public Guid? ResourceId { get; set; }
 
+    public string ResourceName { get; set; }
+
+    public string ResourceType { get; set; }
+
     public Guid StatusId { get; set; }
+
+    public string StatusName { get; set; }
 
     public DateTime StartTime { get; set; }
 
@@ -32,19 +37,7 @@ namespace SlickSysDev.ApiService
 
     public Guid? RecurrenceId { get; set; }
 
-    public string Source { get; set; }
-
     public bool IsDeleted { get; set; }
 
-    public DateTime CreatedAt { get; set; }
-
-    public virtual Client Client { get; set; }
-
-    public virtual Practice Practice { get; set; }
-
-    public virtual Principal Principal { get; set; }
-
-    public virtual Resource Resource { get; set; }
-
-    public virtual AppointmentStatus Status { get; set; }
+    public string ItemType { get; set; }
 }

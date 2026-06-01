@@ -8,10 +8,10 @@
 .claude/
 .ai/
 .vscode/
-
+./vsbakup
 # Node modules
 **/node_modules/
-
+[Ss]creens/
 
 # User-specific files
 *.rsuser

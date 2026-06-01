@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Dapper.Contrib.Extensions;
 
-namespace SlickSysDev.Entity
+namespace SlickSysDev.ApiService
 {
     /// <summary>
     /// A account with users
