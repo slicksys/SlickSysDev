@@ -2,8 +2,9 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using SlickSysDev.Data.Service;
 
-namespace SlickSysDev.ApiService.Model;
+namespace SlickSysDev.Data.Service.Model;
 
 public partial class PrincipalContextLabel : BaseEntity
 {

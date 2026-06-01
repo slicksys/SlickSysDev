@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace SlickSysDev.ApiService
+﻿namespace SlickSysDev.Data.Service
 {
     public class BaseEntity
     {

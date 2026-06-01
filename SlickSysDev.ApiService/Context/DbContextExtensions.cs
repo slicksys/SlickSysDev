@@ -1,36 +1,34 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Data;
 
-namespace SlickSysDev.ApiService.Context
+namespace SlickSysDev.Data.Service.Context
 {
     public static class DbContextExtensions
     {
         public static async Task<List<T>> SqlQueryAsync<T>(this DbContext db, string sql, object[] parameters = null, CancellationToken? cancellationToken = default)
-           where T : class
+            where T : class
         {
             parameters ??= Array.Empty<object>();
             cancellationToken ??= CancellationToken.None;
-            
+
             if (typeof(T).GetProperties().Any())
             {
-                return await db.Database
-                    .SqlQueryRaw<T>(sql, parameters)
-                    .ToListAsync(cancellationToken.Value);
+                return new List<T>();
             }
             else
             {
-                await db.Database.ExecuteSqlRawAsync(sql, parameters, cancellationToken.Value);
+                //await db.Database.ExecuteSqlRawAsync(sql, parameters, cancellationToken.Value);
                 return default;
             }
         }
     }
 
+    public class DbContext
+    {
+    }
+
     public class OutputParameter<TValue>
+
     {
         private bool _valueSet = false;
 

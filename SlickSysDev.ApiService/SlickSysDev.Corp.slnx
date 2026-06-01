@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="../SlickSysDev.Admin/SlickSysDev.Admin.csproj" />
+  <Project Path="../SlickSysDev.AppHost/SlickSysDev.AppHost.csproj" />
+  <Project Path="../SlickSysDev.Data.Api/SlickSysDev.DataApi.csproj" />
+  <Project Path="../SlickSysDev.Public/SlickSysDev.Public.csproj" />
+  <Project Path="../SlickSysDev.ServiceDefaults/SlickSysDev.ServiceDefaults.csproj" />
+  <Project Path="../SlickSysDev.Web/SlickSysDev.Web.csproj" />
+  <Project Path="../Utils/Utils.csproj" />
+  <Project Path="SlickSysDev.Data.Service.csproj" />
+</Solution>

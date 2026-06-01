@@ -2,8 +2,9 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using SlickSysDev.Data.Service;
 
-namespace SlickSysDev.ApiService.Model;
+namespace SlickSysDev.Data.Service.Model;
 
 //^(\s*public\s+partial\s+class\s+[A-Za-z_]\w*)(?!\s*:)
 

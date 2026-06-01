@@ -1,4 +1,4 @@
-<Project Sdk="Aspire.AppHost.Sdk/13.3.5">
+<Project Sdk="Aspire.AppHost.Sdk/13.5.0-preview.1.26281.17">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -11,14 +11,14 @@
   <ItemGroup>
     <ProjectReference Include="..\SlickSysDev.Public\SlickSysDev.Public.csproj" />
     <ProjectReference Include="..\SlickSysDev.Admin\SlickSysDev.Admin.csproj" />
-    <ProjectReference Include="..\SlickSysDev.ApiService\SlickSysDev.ApiService.csproj" />
-    <ProjectReference Include="..\SlickSysDev.Data.Api\ManagementData.Api.csproj" />
+    <ProjectReference Include="..\SlickSysDev.ApiService\SlickSysDev.Data.Service.csproj" />
+    <ProjectReference Include="..\SlickSysDev.Data.Api\SlickSysDev.DataApi.csproj" />
     <ProjectReference Include="..\SlickSysDev.Web\SlickSysDev.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting" Version="13.3.5" />
-    <PackageReference Include="Aspire.Hosting.Redis" Version="13.3.5" />
+    <PackageReference Include="Aspire.Hosting" Version="13.5.0-preview.1.26281.17" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="13.5.0-preview.1.26281.17" />
   </ItemGroup>
 
 </Project>

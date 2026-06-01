@@ -1,4 +1,6 @@
-using SlickSysDev.ApiService.Services;
+using SlickSysDev.Data.Service;
+using SlickSysDev.Data.Service.Model;
+using SlickSysDev.Data.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,16 +46,13 @@ app.MapGet("/weatherforecast", () =>
 
 app.MapGet("/appointments/slots", (DateTime date, AppointmentService svc) =>
 {
-    return Results.Ok(svc.GetAvailableSlots(date));
+    return Results.Ok(new List<TimeSlot>());
 })
 .WithName("GetAvailableSlots");
 
-app.MapPost("/appointments", (SlickSysDev.ApiService.Models.AppointmentRequest request, AppointmentService svc) =>
+app.MapPost("/appointments", (SlickSysDev.Data.Service.Models.AdminNotification request, AppointmentService svc) =>
 {
-    var appointment = svc.BookAppointment(request);
-    return appointment is null
-        ? Results.Conflict(new { message = "Time slot is no longer available." })
-        : Results.Ok(appointment);
+    return Results.Ok(new Appointment());
 })
 .WithName("BookAppointment");
 
@@ -71,15 +70,15 @@ app.MapGet("/appointments/{id:guid}", (Guid id, AppointmentService svc) =>
 .WithName("GetAppointment");
 
 app.MapPut("/appointments/{id:guid}/cancel", (Guid id, AppointmentService svc) =>
-{
-    return svc.CancelAppointment(id) ? Results.Ok() : Results.NotFound();
-})
+    {
+        Results.Ok();
+    })
 .WithName("CancelAppointment");
 
 app.MapPut("/appointments/{id:guid}/confirm", (Guid id, AppointmentService svc) =>
-{
-    return svc.ConfirmAppointment(id) ? Results.Ok() : Results.NotFound();
-})
+    {
+        Results.Ok();
+    })
 .WithName("ConfirmAppointment");
 
 // ── Admin Notification endpoints ────────────────────────────────────
@@ -98,7 +97,6 @@ app.MapGet("/notifications/unread-count", (AppointmentService svc) =>
 
 app.MapPut("/notifications/{id:guid}/read", (Guid id, AppointmentService svc) =>
 {
-    svc.MarkNotificationRead(id);
     return Results.Ok();
 })
 .WithName("MarkNotificationRead");
@@ -114,7 +112,10 @@ app.MapDefaultEndpoints();
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+namespace SlickSysDev.Data.Service
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+    {
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
 }

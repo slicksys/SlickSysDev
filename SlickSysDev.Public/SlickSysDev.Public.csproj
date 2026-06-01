@@ -90,7 +90,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="13.3.5" />
+    <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="13.5.0-preview.1.26281.17" />
   </ItemGroup>
 
   <ItemGroup>

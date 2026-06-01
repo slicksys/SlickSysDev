@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SlickSysDev.ApiService.Model
+﻿namespace SlickSysDev.Data.Service.Models
 {
     /// <summary>
     /// A user attached to an account

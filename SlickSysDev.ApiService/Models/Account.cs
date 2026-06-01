@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Dapper.Contrib.Extensions;
-
-namespace SlickSysDev.ApiService.Model
+﻿namespace SlickSysDev.Data.Service.Models
 {
     /// <summary>
     /// A account with users

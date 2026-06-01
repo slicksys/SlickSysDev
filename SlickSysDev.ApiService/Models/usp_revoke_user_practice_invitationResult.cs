@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using SlickSysDev.Data.Service;
 
-namespace SlickSysDev.ApiService.Model
+namespace SlickSysDev.Data.Service.Model
 {
     public partial class usp_revoke_user_practice_invitationResult : BaseEntity
     {

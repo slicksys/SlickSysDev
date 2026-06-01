@@ -2,10 +2,12 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var cache = builder.AddRedis("cache");
 
-var apiService = builder.AddProject<Projects.SlickSysDev_ApiService>("apiservice")
-    .WithHttpHealthCheck("/health");
 
-var dataApi = builder.AddProject<Projects.ManagementData_Api>("managementdata-api")
+var apiService = builder.AddProject<Projects.SlickSysDev_Data_Service > ("data-service")
+        .WithHttpHealthCheck("/health");
+
+
+var dataApi = builder.AddProject<Projects.SlickSysDev_DataApi>("edge-api")
     .WithHttpHealthCheck("/health");
 
 builder.AddProject<Projects.SlickSysDev_Web>("webfrontend")

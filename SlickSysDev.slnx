@@ -1,17 +1,26 @@
 <Solution>
-  <Folder Name="/DataApi/">
-    <Project Path="SlickSysDev.Data.Api/ManagementData.Api.csproj" />
-  </Folder>
-  <Folder Name="/DataBase/">
-    <Project Path="Slicksys.Database/Database/ManagementData.sqlproj" Id="ab6cbf13-2bfa-4864-a2f3-2ef644b1e4fe">
-      <Deploy />
-    </Project>
-  </Folder>
-  <Project Path="SlickSysDev.Admin/SlickSysDev.Admin.csproj" />
-  <Project Path="SlickSysDev.ApiService/SlickSysDev.ApiService.csproj" />
-  <Project Path="SlickSysDev.AppHost/SlickSysDev.AppHost.csproj" />
-  <Project Path="SlickSysDev.Public/SlickSysDev.Public.csproj" />
-  <Project Path="SlickSysDev.ServiceDefaults/SlickSysDev.ServiceDefaults.csproj" />
-  <Project Path="SlickSysDev.Web/SlickSysDev.Web.csproj" />
-  <Project Path="Utils/Utils.csproj" Id="d3603d84-c8fb-4c64-b9b9-06775be651d3" />
+  <Configurations>
+    <BuildType Name="Debug" />
+  </Configurations>
+  <Project Path="." Type="Website" DisplayName="SlickSysDev" Id="655dbdbd-c228-ecc0-e0a2-a591177f9700">
+    <Build Project="false" />
+    <Properties Name="WebsiteProperties">
+      <Property Name="Debug.AspNetCompiler.Debug" Value="&quot;True&quot;" />
+      <Property Name="Debug.AspNetCompiler.FixedNames" Value="&quot;false&quot;" />
+      <Property Name="Debug.AspNetCompiler.ForceOverwrite" Value="&quot;true&quot;" />
+      <Property Name="Debug.AspNetCompiler.PhysicalPath" Value="&quot;D:\Projects\SlickSysDev\&quot;" />
+      <Property Name="Debug.AspNetCompiler.TargetPath" Value="&quot;PrecompiledWeb\localhost_65210\&quot;" />
+      <Property Name="Debug.AspNetCompiler.Updateable" Value="&quot;true&quot;" />
+      <Property Name="Debug.AspNetCompiler.VirtualPath" Value="&quot;/localhost_65210&quot;" />
+      <Property Name="Release.AspNetCompiler.Debug" Value="&quot;False&quot;" />
+      <Property Name="Release.AspNetCompiler.FixedNames" Value="&quot;false&quot;" />
+      <Property Name="Release.AspNetCompiler.ForceOverwrite" Value="&quot;true&quot;" />
+      <Property Name="Release.AspNetCompiler.PhysicalPath" Value="&quot;D:\Projects\SlickSysDev\&quot;" />
+      <Property Name="Release.AspNetCompiler.TargetPath" Value="&quot;PrecompiledWeb\localhost_65210\&quot;" />
+      <Property Name="Release.AspNetCompiler.Updateable" Value="&quot;true&quot;" />
+      <Property Name="Release.AspNetCompiler.VirtualPath" Value="&quot;/localhost_65210&quot;" />
+      <Property Name="TargetFrameworkMoniker" Value="&quot;.NETFramework,Version%3Dv4.8&quot;" />
+      <Property Name="VWDPort" Value="&quot;65210&quot;" />
+    </Properties>
+  </Project>
 </Solution>

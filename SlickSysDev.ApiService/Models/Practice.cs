@@ -2,8 +2,10 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using SlickSysDev.Data.Service;
+using SlickSysDev.Data.Service.Models;
 
-namespace SlickSysDev.ApiService.Model;
+namespace SlickSysDev.Data.Service.Model;
 
 public partial class Practice : BaseEntity
 {
