@@ -1,0 +1,16 @@
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\17.0_0b2cc855\Extensions\h0xeenpx.ni1\envdte.dll"
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\envdte90a.dll"
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\envdte80.dll"
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\envdte90.dll"
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\envdte100.dll"
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\envdte.dll"
+
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\Microsoft.VisualStudio.OLE.Interop.dll"
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\dd3ldud1.rxi\LanguageServer\System.Data.OleDb.dll"
+
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\Microsoft.VisualStudio.Shell.Interop.8.0.dll"
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\Microsoft.VisualStudio.Shell.Interop.9.0.dll"
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\Microsoft.VisualStudio.Shell.Interop.11.0.dll"
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\Microsoft.VisualStudio.Shell.Interop.12.0.dll"
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\Microsoft.VisualStudio.Shell.Interop.10.0.dll"
+"C:\Users\mindb\AppData\Local\Microsoft\VisualStudio\18.0_1df271a1\Extensions\rsaxhed1.p51\Microsoft.VisualStudio.Shell.Interop.dll"
