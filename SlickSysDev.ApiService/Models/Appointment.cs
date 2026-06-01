@@ -3,12 +3,12 @@
 using System;
 using System.Collections.Generic;
 
-namespace SlickSysDev.ApiService
+namespace SlickSysDev.ApiService.Model
 {
     /// <summary>
     /// A account with users
     /// </summary>
-    public class Appointment : BaseEntity
+public class Appointment : BaseEntity
 {
     public Guid AppointmentId { get; set; }
 
