@@ -1,24 +1,26 @@
-<Project Sdk="Aspire.AppHost.Sdk/13.3.2">
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.5.0" />
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <UserSecretsId>4e161a9e-f5f5-4fa8-8130-9336e4e5519a</UserSecretsId>
+    <UserSecretsId>4bc89ad0-66d7-4bcb-9722-9fd3a8a2e1b9</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SlickSysDev.Public\SlickSysDev.Public.csproj" />
-    <ProjectReference Include="..\SlickSysDev.Admin\SlickSysDev.Admin.csproj" />
-    <ProjectReference Include="..\SlickSysDev.ApiService\SlickSysDev.ApiService.csproj" />
-    <ProjectReference Include="..\SlickSysDev.Data.Api\ManagementData.Api.csproj" />
-    <ProjectReference Include="..\SlickSysDev.Web\SlickSysDev.Web.csproj" />
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.0" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="9.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting" Version="13.3.5" />
-    <PackageReference Include="Aspire.Hosting.Redis" Version="13.3.5" />
+    <ProjectReference Include="..\SlickSysDev.ApiService\SlickSysDev.ApiService.csproj" />
+    <ProjectReference Include="..\SlickSysDev.Data.Api\ManagementData.Api.csproj" />
+    <ProjectReference Include="..\SlickSysDev.Web\SlickSysDev.Web.csproj" />
+    <ProjectReference Include="..\SlickSysDev.Admin\SlickSysDev.Admin.csproj" />
+    <ProjectReference Include="..\SlickSysDev.Public\SlickSysDev.Public.csproj" />
   </ItemGroup>
 
 </Project>
