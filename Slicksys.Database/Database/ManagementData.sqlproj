@@ -8,6 +8,9 @@
     <ModelCollation>1033, CI</ModelCollation>
     <TargetDatabaseSet>True</TargetDatabaseSet>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
   <ItemGroup>
     <None Include=".vscode\tasks.json" />
     <None Include="tests\ManagementData.Api.IntegrationTests\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll" />
